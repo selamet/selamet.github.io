@@ -1,1 +1,0 @@
-# selametsamli.github.io
