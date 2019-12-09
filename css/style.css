@@ -1095,8 +1095,13 @@ ul.timeline {
 
 #ab_bayrak {
   height: 160px;
+  display: block;
   top: 50%;
   transform: translateY(30%);
+}
+
+@media(max-with:992px){
+  #ab_bayrak{margin-bottom: 50px;}
 }
 
 
