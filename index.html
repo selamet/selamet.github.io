@@ -1,209 +1,774 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="tr">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Codekafa</title>
-<link rel ="stylesheet" href="css/style.css"/>
-<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-
+  <title>Sivil Toplum Kuruluşlarının Veritabanın Hazırlanması Projesi</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  <link rel="stylesheet" href="css/bootstrap.css" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="cubeportfolio/css/cubeportfolio.min.css" />
+  <link rel="stylesheet" href="css/owl.theme.css" />
+  <link rel="stylesheet" href="css/owl.carousel.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/colors/yellow.css" id="color" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
+  <link rel="stylesheet" href="icon-fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="icon-fonts/web-design/flaticon.css" />
 </head>
+
 <body>
-	<!--Navbar-->
-   <div id="ust">
 
-	
-		  <div class="logo"> <img src="img/logo.png" /> </div>
 
-          <div id="ust-ici">
-          
+  <img src="images/ABbayrak_.png" id='ab_bayrak' alt="" class="center-block img-responsive">
 
-          <ul>
-          <li> <a href="index.html"> Anasayfa </a>  </li>
-		  <li> <a href="resimler.html"> Resimler </a>  </li>
-		
-		  <li> <a href="detay.html"> Detay </a>  </li>
-		  <li> <a href="#"> Kategori </a>  </li>
-		  <li> <a href="#"> Kategori </a>  </li>
-          <li> <a href="#"> Kategori </a>  </li>
-          
+  <div id="preloader">
+    <div class="spinner">
+    </div>
+  </div>
+  <div class="wrapper top_60 container">
+    <div class="row">
+      <div class="col-lg-3 col-md-4">
+        <div class="profile">
+          <div class="profile-name">
+            <span class="name">Proje Adı:</span><br>
+            <span class="job">Türkiye'de Türk Sivil Toplum Kuruluşlarının Yönetim Kapasitesinin ve Saygınlığının Artırılması</span>
+          </div>
+          <figure class="profile-image">
+            <img src="images/profile.jpg" alt="">
+          </figure>
+          <ul class="profile-information">
+            <li></li>
+            <li>
+              <p><span>Başlangıç:</span>Ocak 01 2018</p>
+            </li>
+            <li>
+              <p><span>Yer:</span> Türkiye, Erzurum</p>
+            </li>
+            <li>
+              <p><span>Durum:</span>Devam ediyor</p>
+            </li>
+            <li>
+              <p><span>Website:</span>siviltoplumprojem.org</p>
+            </li>
           </ul>
+          <div class="col-md-12">
+            <button class="site-btn icon">Proje Dökümanı <i class="fa fa-download" aria-hidden="true"></i></button>
           </div>
+        </div>
+      </div>
+      <div id="ajax-tab-container" class="col-lg-9 col-md-8 tab-container">
+        <div class="row">
+          <header class="col-md-12">
+            <nav>
+              <div class="row">
+                <div class="col-md-8 col-sm-8 col-xs-4">
+                  <ul class="tabs">
+                    <li class="tab">
+                      <a class="home-btn" href="#home"><i class="fa fa-home" aria-hidden="true"></i></a>
+                    </li>
+                    <li class="tab"><a href="#resume">PROJEMİZ</a></li>
+                    <li class="tab"><a href="#portfolio">PROJE GALERİ</a></li>
+                    <li class="tab"><a href="#blog">YAYINLAR</a></li>
+                    <li class="tab"><a href="#hakkimizda">HAKKIMIZDA</a></li>
 
-          </div>
+                    <li class="tab"><a href="#contact">İLETİŞİM</a></li>
+                  </ul>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-8 dynamic">
+                  <a href="mailto:hi@tavonline.net" class="pull-right site-btn icon hidden-xs">Sisteme Giriş<i class="fa fa-paper-plane" aria-hidden="true"></i></a>
+                  <div class="hamburger pull-right hidden-lg hidden-md"><i class="fa fa-bars" aria-hidden="true"></i></div>
+                  <div class="hidden-md social-icons pull-right">
+                    <a class="fb" href="https://www.facebook.com/dogtarbesbir1"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a class="tw" href="https://twitter.com/dogtarbesbir1"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a class="ins" href="https://www.instagram.com/dogtarbesbir/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    <a class="dr" href="https://www.youtube.com/channel/UC7sqsXNVpqHaoPWuc3wlbhg?"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </header>
+          <div class="col-md-12">
+            <div id="content" class="panel-container">
+              <div id="home">
+                <div class="row">
+                  <section class="about-me line col-md-12 padding_30 padbot_45">
+                    <div class="section-title"><span></span>
+                      <h2>T.C. Avrupa Birliği Bakanlığı Sivil Toplum Sektörü</h2>
+                    </div>
+                    <p class="top_30">Sivil Toplum Sektörü, AB-Türkiye ilişkilerinin en dinamik boyutu olan Katılım Öncesi Mali Yardım Aracının (IPA) 2014-2020 yıllarını kapsayan döneminde sivil topluma yönelik çalışmaların yürütüleceği çerçeve
+                      Programdır.
 
-          
-     
-</div>
+                      Sivil Toplum alanı 2014-2020 AB Mali Yardımları döneminde enerji, ulaştırma, çevre, tarım gibi ayrı bir sektör olarak tanımlandı.
 
-   <div class="arkaplan">
+                      Belirtilen dönemde, AB tarafından Türkiye’ye tahsis edilecek 4,5 milyar avroluk mali yardımın 190 milyon avrosu sivil toplum sektörü altında yürütülecek proje ve programlara ayrıldı. Sivil Toplumun sektör olarak tanımlanması ile
+                      birlikte tahsis edilmiş bir bütçe çerçevesinde sivil topluma yönelik çalışmaların uzun vadeli bir bakış açısıyla programlanmasına zemin oluşturuldu.
 
+                      AB BAŞKANLIĞI tarafından geliştirilen Sektör Planlama Dokümanı bu zeminin hatlarını ortaya koyuyor. Buna göre sivil toplum ile birlikte yapılacak veya sivil topluma yönelik yapılacak çalışmaların dört ana hedefe hizmet etmesi
+                      bekleniyor:
 
-   	<!--İçerikler-->
+                      Kamu sivil toplum diyaloğunun güçlendirilmesi Kamu sektörü ile STK’lar arasındaki işbirliğinin güçlendirilmesi hedefleniyor. Oluşturulacak şeffaf mekanizmalar aracılığıyla politika yapma ve yönetişim konularında STK’larla yerel,
+                      bölgesel ve ulusal düzeyde istişareler desteklenecek.
 
+                      STK’lara yönelik yasal çerçevenin iyileştirilmesi STK’ların kuruluşu, çalışmaları, finansmanı, denetimi gibi konulardaki mevzuatın iyileştirilmesine yönelik projelere; projeler aracılığıyla sivil toplum için daha şeffaf ve hesap
+                      verebilir bir ortam yaratılmasına katkı sağlanacak. Öte yandan STK’ların mali kapasitesi ve sürdürülebilirliğini sağlamak üzere, sivil toplum finansman mekanizmalarının iyileştirilmesine destek olunacak.
 
-   		<div class="icerik-baslik">
-   			
-   			<h1>Blog Yazısı Başlığı
-   			</h1>
-		<div class="cizgi"></div>
-		<div class="resim"><img src="img/resim.jpg" /></div>
-   		<div class="yazi">	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae similique expedita, mollitia reiciendis incidunt numquam, sit vitae. Commodi odit, et sint dolorem, quam incidunt, architecto impedit error ipsum atque provident...
+                      STK’ların kapasitesinin güçlendirilmesi STK’ların ağ kurma kapasitelerinin güçlendirilerek ve kamuoyu tartışmalarına daha etkili biçimde katılmaları desteklenerek, kamu politikalarının şekillendirilmesi, uygulanması ve izlenmesi
+                      alanında etkin olmaları sağlanacak. Ayrıca STK’ların özel sektörle ilişkilerini geliştirilmesine de destek olunacak.
 
-		</div>
-   		<a href="detay.html"><button onclick="detay.html" class="btn danger"> Devamını Oku</button></a>
-   		
+                      Sivil toplum diyaloğunun geliştirilmesi AB ve Türkiye STK’ları arasında uzun vadeli ortaklıkların ve işbirliğinin kurulmasına destek olunacak. Bu süreçte, STK’ların sivil toplum diyaloğuna daha fazla sahip çıkmalarına yönelik
+                      çalışmalar da gerçekleştirilecek.
 
+                      Sivil Toplum Sektörünün programlanması ve uygulanmasından, son 15 yılda geliştirdiği sivil toplum odaklı bakış açısı ve bu alanda yürüttüğü projelerden edindiği deneyime dayanarak Avrupa Birliği Bakanlığı sorumlu olacak.</p>
+                  </section>
+                </div>
+                <div class="row">
+                  <section class="about-me line col-md-12 padding_30 padbot_45">
+                    <div class="section-title"><span></span>
+                      <h2>Proje Özeti</h2>
+                    </div>
+                    <p class="top_30">Üreticilerin organik et ve süt üretimi konusunda bilgilenmelerini ve uygulama kapasitelerini artırmak AB uygulamalarından haberdar olmalarını dünyada ve ülkemizde yapılan örnek üretimlerin örnek teşkil etmesini
+                      sağlamak. Bilimsel üretimin öneminin kavranmasına katkı sağlamak Yenilikçi metotlarla ve dünyadaki gelişmelerin takip edilmesinin öneminin kavranmasına katkı yapmak Organik et ve süt üretimini gerçekleştirerek sağlıklı gıda
+                      üretimine katkı sağlamak Üreticilerin var olan bitkisel üretimlerinin hayvansal üretimde de değerlendirilmesini sağlamak. Üreticilerin değeri fiyattan ürünlerinin satılmasına katkı sağlamak Yörede organik hayvancılık , organik
+                      et ve süt üretimi konusunda farkındalık oluşturmak.</p>
+                  </section>
+                </div>
+              </div>
+              <div id="resume">
+                <div class="row">
+                  <section class="education">
+                    <div class="section-title top_30"><span></span>
+                      <h2>Projemiz</h2>
+                    </div>
+                    <div class="row">
+                      <div class="education-history col-md-6 padding_15 padbot_30">
+                        <ul class="timeline col-md-12 top_30">
+                          <li><i class="fa fa-circle-thin" aria-hidden="true"></i>
+                            <h2 class="timeline-title">Amaçlarımız</h2>
+                          </li>
+                          <li>
+                            <h3 class="line-title"> Projenin genel amacı, STÖ üyeleri, birimleri/bileşenleri arasında, ayrıca özel sektör, kamu ve akademisyenler arasında işbirliği ve koordinasyonun artırılması yoluyla Erzurum ve Türkiye'deki STÖ'nin
+                              yönetim kapasitelerinin saygınlığının artırılmasıdır.</h3>
+                          </li>
+                          <li>
+                            <h3 class="line-title">Projenin özel amacı, Platform oluşturma ve derneklerin yönetimsel/finalsal kapasitelerinin sürdürülebilir gelişimi için iletişim planı, izleme ve değerlendirme planı, stratejik plan hazırlama
+                              kapasitelerinin artırılması yollarıyla Türkiye'de organik tarım alanında çalışan derneklerin kapasitelerinin artırılmasıdır.</h3>
+                          </li>
 
-   		</div>
+                        </ul>
+                      </div>
+                      <div class="education-history col-md-6 padding_15 padbot_30">
+                        <ul class="timeline col-md-12 top_30">
+                          <li><i class="fa fa-circle-thin" aria-hidden="true"></i>
+                            <h2 class="timeline-title">Program Kapsamı</h2>
+                          </li>
+                          <li>
+                            <h3 class="line-title">Sivil Toplum Sektörü</h3>
+                          </li>
+                          <li>
+                            <h3 class="line-title">Sivil Toplum Destek Programı II</h3>
+                          </li>
+                          <li>
+                            <h3 class="line-title">STK'ların kapasitesinin güçlendirilmesine yönelik olarak yürütlen bir hibe programıdır.</h3>
+                          </li>
+                          <li>
+                            <h3 class="line-title">STK'ların yönetim ve stratejik planlama kapasitelerinin güçlendirilmesi, STK'ların yürüttüğü çalışmaların etkinliğinin ve görünürlüğünün artırılması, savunuculuk yeteneklerinin geliştirilmesi
+                              hedefleniyor.</h3>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
 
-   		<div class="icerik-baslik">
-   			
-   			<h1>Blog Yazısı Başlığı
-   			</h1>
-		<div class="cizgi"></div>
-		<div class="resim"><img src="img/resim.jpg" /></div>
-   		<div class="yazi">	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae similique expedita, mollitia reiciendis incidunt numquam, sit vitae. Commodi odit, et sint dolorem, quam incidunt, architecto impedit error ipsum atque provident...
+                    <div style="height:400px;" class="working-history col-md-6 padding_15 padbot_30">
+                      <ul class="timeline col-md-12 top_30">
+                        <li><i class="fa fa-circle-thin" aria-hidden="true"></i>
+                          <h2 class="timeline-title">Beklenen Sonuçlar</h2>
+                        </li>
+                        <li>
+                          <h3 class="line-title">1. STÖ'leri Organik Tarım Platformu oluşturuldu ve kapasitelerini güçlendirdi</h3>
+                        </li>
+                        <li>
+                          <h3 class="line-title">Organik Tarım Platformu kamu ile ilişkilendirildi ayrıca kamu ve özel sektör ortaklıları kuruldu.</h3>
+                        </li>
+                        <li>
+                          <h3 class="line-title">Organik tarım platform ulusal ve uluslararası düzeyde network oluşturuldu.</h3>
+                        </li>
 
-		</div>
-   		
-		<a href="detay.html"><button onclick="detay.html" class="btn danger"> Devamını Oku</button></a>
-
-
-   		</div>
-
-   		<div class="icerik-baslik">
-   			
-   			<h1>Blog Yazısı Başlığı
-   			</h1>
-		<div class="cizgi"></div>
-		<div class="resim"><img src="img/resim.jpg" /></div>
-   		<div class="yazi">	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae similique expedita, mollitia reiciendis incidunt numquam, sit vitae. Commodi odit, et sint dolorem, quam incidunt, architecto impedit error ipsum atque provident...
-
-		</div>
-   		
-		<a href="detay.html"><button onclick="detay.html" class="btn danger"> Devamını Oku</button></a>
-
-
-   		</div>
-
-   		<div class="icerik-baslik">
-   			
-   			<h1>Blog Yazısı Başlığı
-   			</h1>
-		<div class="cizgi"></div>
-		<div class="resim"><img src="img/resim.jpg" /></div>
-   		<div class="yazi">	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae similique expedita, mollitia reiciendis incidunt numquam, sit vitae. Commodi odit, et sint dolorem, quam incidunt, architecto impedit error ipsum atque provident...
-
-		</div>
-   		
-		<a href="detay.html"><button onclick="detay.html" class="btn danger"> Devamını Oku</button></a>
-
-
-   		</div>
-
-   		<div class="icerik-baslik">
-   			
-   			<h1>Blog Yazısı Başlığı
-   			</h1>
-		<div class="cizgi"></div>
-		<div class="resim"><img src="img/resim.jpg" /></div>
-   		<div class="yazi">	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae similique expedita, mollitia reiciendis incidunt numquam, sit vitae. Commodi odit, et sint dolorem, quam incidunt, architecto impedit error ipsum atque provident...
-
-		</div>
-   		
-		<a href="detay.html"><button onclick="detay.html" class="btn danger"> Devamını Oku</button></a>
-
-
-   		</div>
-
-
-   		<!--Tanıtım-->
-
-   		
-   		<div class="tanitim">
-   			<img src="img/red-kid.png" />
-   			<h1>CODE KAFA</h1>
-   			<a >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium modi quas obcaecati sed distinctio.</a>
-   		<!--Sosyal Medya -->
-		
-		<div class="sosyal-medya">
-			<div class="sosyal-medya-icon"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i>
-</a></div>
-			<div class="sosyal-medya-icon"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i>
-</a></div>
-			<div class="sosyal-medya-icon"><a href="#"><i class="fa fa-google" aria-hidden="true"></i>
-</a></div>
-			<div class="sosyal-medya-icon"><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i>
-</a></div>
-			<div class="sosyal-medya-icon"><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i>
-</a></div>
-
-			</div>
-
-   		
-
-   		</div>
+                      </ul>
+                    </div>
+                    <div style="height:400px;" class="working-history col-md-6 padding_15 padbot_30">
+                      <ul class="timeline col-md-12 top_30">
+                        <li><i class="fa fa-circle-thin" aria-hidden="true"></i>
+                          <h2 class="timeline-title">Proje Ortağı</h2>
+                        </li>
+                        <li>
+                          <h3 class="line-title"><a href="https://www.ifoam.bio/">IFOAM</a></h3>
+                        </li>
+                        <li>
+                          <h3 class="line-title">Uluslararası Organik Tarım Hareketleri</h3>
+                        </li>
 
 
-   </div>
-  
+                      </ul>
+                    </div>
+                    <div class="education-history col-md-6 padding_15 padbot_30">
+                      <ul class="timeline col-md-12 top_30">
+                        <li><i class="fa fa-circle-thin" aria-hidden="true"></i>
+                          <h2 class="timeline-title">Proje İştirakçileri</h2>
+                        </li>
+                        <li>
+                          <h3 class="line-title"> Marmara Üniversitesi Avrupa Enstitüsü - İSTANBUL</h3>
+                        </li>
+                        <li>
+                          <h3 class="line-title"> Ekoloji Tarım Organizasyonu ETO Derneği - İZMİR</h3>
+                        </li>
+                        <li>
+                          <h3 class="line-title"> Erzurum Organik Güvenilir Gıda Derneği - ERZURUM</h3>
+                        </li>
+                        <li>
+                          <h3 class="line-title"> Çukurova Organik Tarım Derneği</h3>
+                        </li>
+                        <li>
+                          <h3 class="line-title"> Buğday Ekolojik Yaşam Derneği - İSTANBUL</h3>
+                        </li>
+                        <li>
+                          <h3 class="line-title"> Manisa Çölyak ve Organik Beslenme Derneği</h3>
+                        </li>
+                        <li>
+                          <h3 class="line-title"> Kocaeli Ekolojik Yaşam Derneği</h3>
+                        </li>
+                        <li>
+                          <h3 class="line-title"> Eğitim ve Meslek Edindirme Derneği - ERZURUM</h3>
+                        </li>
+                        <li>
+                          <h3 class="line-title"> Kapadokya Organik Tarım Üreticileri Derneği - KAYSERİ</h3>
+                        </li>
+                        <li>
+                          <h3 class="line-title"> Akçakoca Organik Güvenilir Gıda Derneği - DÜZCE</h3>
+                        </li>
+                        <li>
+                          <h3 class="line-title"> Girişimci Kadınlar Derneği - ERZURUM</h3>
+                        </li>
+                        <li>
+                          <h3 class="line-title"> Açık Alan Derneği - İSTANBUL</h3>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="education-history col-md-6 padding_15 padbot_30">
+                      <ul class="timeline col-md-12 top_30">
+                        <li><i class="fa fa-circle-thin" aria-hidden="true"></i>
+                          <h2 class="timeline-title">Faaliyetler</h2>
+                        </li>
+                        <li>
+                          <h3 class="line-title">Faaliyet 1: Proje Ekibinin Oluşturulması</h3>
+                        </li>
+                        <li>
+                          <h3 class="line-title">Faaliyet 2: Proje Web Sayfası ve Organik Tarım Platformu Veri Tabanı</h3>
+                        </li>
+                        <li>
+                          <h3 class="line-title">Faaliyet 3: İç Değerlendirme ve Açılış Toplantısı</h3>
+                        </li>
+                        <li>
+                          <h3 class="line-title">Faaliyet 4: Stratejik Planların Hazırlanması / Derneklerin Planlarının Gözlenmesi ve Değerlendirilmesi</h3>
+                        </li>
+                        <li>
+                          <h3 class="line-title">Faaliyet 5: Derneklerin İletişim Planlarının Hazırlanması</h3>
+                        </li>
+                        <li>
+                          <h3 class="line-title">Faaliyet 6: Türkiye'deki 12 Derneğin Bilgilendirme Toplantısı</h3>
+                        </li>
+                        <li>
+                          <h3 class="line-title">Faaliyet 7: Partnerlerin Bilgi Paylaşımı ve Almanya Seyahati / Çalışma Turları</h3>
+                        </li>
+                        <li>
+                          <h3 class="line-title">Faaliyet 8: Projenin Kapanış Toplantısı</h3>
+                        </li>
+                        <li>
+                          <h3 class="line-title">Faaliyet 9: Görünebilirlik Aktiviteleri</h3>
+                        </li>
+                        <li>
+                          <h3 class="line-title">Faaliyet 10: İzleme, Değerlendirme ve Raporlama</h3>
+                        </li>
 
-   
+                      </ul>
+                    </div>
 
-<div class="orta"></div>
 
-<div id="footer">
-
-	<div class ="birinci">
-		<br>
-		<br>
-			<h3>VİZYON</h3>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt consequatur minima quidem omnis aliquam, itaque cumque earum! Laboriosam soluta quia omnis quis explicabo sint, ipsum doloremque totam facere! Quis, adipisci. <a href="code">codecafa.com</a> </p>
-	</div>
-
-	<div class ="ikinci">
-			<br>
-			<br>
-				<div class="col-md-4 margin-bottom-20">
-                            <h3 class="margin-bottom-10">İletişim</h3>
-                            <p>
-                                <span class="fa fa-phone"> Telefon:</span>53-53-53-53
-                                <br>
-                                <span class="fa fa-envelope"> Email:</span>
-                                <a href="mailto:info@example.com"> info@example.com</a>
-                                <br>
-                                <span class="fa fa-link"> Website:</span>
-                                <a href="http://www.example.com">www.example.com</a>
-                            </p>
-                            
+                  </section>
+                </div>
+                <div class="row">
+                  <section class="clients col-md-12 graybg padding_45 padbot_45">
+                    <div class="section-title bottom_30"><span></span>
+                      <h2>İştirakçiler ve Ortaklar</h2>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="client">
+                          <img src="images/client-01.jpg" alt="">
                         </div>
-	
-		
-	</div>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="client">
+                          <img src="images/client-02.jpg" alt="">
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="client">
+                          <img src="images/client-03.jpg" alt="">
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="client">
+                          <img src="images/client-04.jpg" alt="">
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <div class="row">
+                  <section class="testimonials bottom_30">
+                    <div class="section-title top_60 bottom_30"><span></span>
+                      <h2>Katılan Eğiticimler</h2>
+                    </div>
+                    <div class="owl-carousel row" data-items="3" data-autoplay="3000" data-pagination="true">
+                      <div class="col-md-12 item">
+                        <div class="comment">
+                          <div class="top-section">
+                            <figure>
+                              <img src="images/testimonial-1.jpg" alt="">
+                            </figure>
+                            <div class="name-info">
+                              <span class="name">EĞİTİMCİ İSMİ</span>
+                              <span class="job">Atatürk üni Prof.</span>
+                            </div>
+                          </div>
+                          <hr>
+                          <p>Great designer! he finished our work wonderfully and just in time. thanks for everything.</p>
+                        </div>
+                      </div>
+                      <div class="col-md-12 item">
+                        <div class="comment">
+                          <div class="top-section">
+                            <figure>
+                              <img src="images/testimonial-2.jpg" alt="">
+                            </figure>
+                            <div class="name-info">
+                              <span class="name">EĞİTİMCİ İSMİ</span>
+                              <span class="job">Atatürk üni Prof.</span>
+                            </div>
+                          </div>
+                          <hr>
+                          <p>Our logo and business card design look great. Thanks Henry</p>
+                        </div>
+                      </div>
+                      <div class="col-md-12 item">
+                        <div class="comment">
+                          <div class="top-section">
+                            <figure>
+                              <img src="images/testimonial-3.jpg" alt="">
+                            </figure>
+                            <div class="name-info">
+                              <span class="name">EĞİTİMCİ İSMİ</span>
+                              <span class="job">Atatürk üni Prof.</span>
+                            </div>
+                          </div>
+                          <hr>
+                          <p>Henry is a very creative and talented designer. I do not hesitate to work again.</p>
+                        </div>
+                      </div>
+                      <div class="col-md-12 item">
+                        <div class="comment">
+                          <div class="top-section">
+                            <figure>
+                              <img src="images/testimonial-1.jpg" alt="">
+                            </figure>
+                            <div class="name-info">
+                              <span class="name">EĞİTİMCİ İSMİ</span>
+                              <span class="job">Atatürk üni Prof.</span>
+                            </div>
+                          </div>
+                          <hr>
+                          <p>Great designer! he finished our work wonderfully and just in time. thanks for everything.</p>
+                        </div>
+                      </div>
+                      <div class="col-md-12 item">
+                        <div class="comment">
+                          <div class="top-section">
+                            <figure>
+                              <img src="images/testimonial-2.jpg" alt="">
+                            </figure>
+                            <div class="name-info">
+                              <span class="name">EĞİTİMCİ İSMİ</span>
+                              <span class="job">Atatürk üni Prof.</span>
+                            </div>
+                          </div>
+                          <hr>
+                          <p>Our logo and business card design look great. Thanks Henry</p>
+                        </div>
+                      </div>
+                      <div class="col-md-12 item">
+                        <div class="comment">
+                          <div class="top-section">
+                            <figure>
+                              <img src="images/testimonial-3.jpg" alt="">
+                            </figure>
+                            <div class="name-info">
+                              <span class="name">EĞİTİMCİ İSMİ</span>
+                              <span class="job">Atatürk üni Prof.</span>
+                            </div>
+                          </div>
+                          <hr>
+                          <p>Henry is a very creative and talented designer. I do not hesitate to work again.</p>
+                        </div>
+                      </div>
+                      <div class="col-md-12 item">
+                        <div class="comment">
+                          <div class="top-section">
+                            <figure>
+                              <img src="images/testimonial-1.jpg" alt="">
+                            </figure>
+                            <div class="name-info">
+                              <span class="name">EĞİTİMCİ İSMİ</span>
+                              <span class="job">Atatürk üni Prof.</span>
+                            </div>
+                          </div>
+                          <hr>
+                          <p>Great designer! he finished our work wonderfully and just in time. thanks for everything.</p>
+                        </div>
+                      </div>
+                      <div class="col-md-12 item">
+                        <div class="comment">
+                          <div class="top-section">
+                            <figure>
+                              <img src="images/testimonial-2.jpg" alt="">
+                            </figure>
+                            <div class="name-info">
+                              <span class="name">EĞİTİMCİ İSMİ</span>
+                              <span class="job">Atatürk üni Prof.</span>
+                            </div>
+                          </div>
+                          <hr>
+                          <p>Our logo and business card design look great. Thanks Henry</p>
+                        </div>
+                      </div>
+                      <div class="col-md-12 item">
+                        <div class="comment">
+                          <div class="top-section">
+                            <figure>
+                              <img src="images/testimonial-3.jpg" alt="">
+                            </figure>
+                            <div class="name-info">
+                              <span class="name">EĞİTİMCİ İSMİ</span>
+                              <span class="job">Atatürk üni Prof.</span>
+                            </div>
+                          </div>
+                          <hr>
+                          <p>Henry is a very creative and talented designer. I do not hesitate to work again.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+              <div id="portfolio" class="row bottom_45">
+                <section class="col-md-12">
+                  <div class="col-md-12 content-header bottom_15">
+                    <div class="section-title top_30 bottom_30"><span></span>
+                      <h2>Galeri</h2>
+                    </div>
+                    <div id="filters-container">
+                      <div data-filter="*" class="cbp-filter-item cbp-filter-item-active">Hepsi</div>
+                      <div data-filter=".webdesign" class="cbp-filter-item">Toplantı</div>
+                      <div data-filter=".motion" class="cbp-filter-item">Gezi</div>
+                      <div data-filter=".illustration" class="cbp-filter-item">Eğitim</div>
+                      <div data-filter=".photography" class="cbp-filter-item">Diğer</div>
+                    </div>
+                  </div>
+                  <div id="grid-container" class="top_60">
+                    <div class="cbp-item webdesign">
+                      <a href="#" class=" cbp-singlePage">
+                        <figure>
+                          <div class="icon">
+                            <i class="fa fa-clone" aria-hidden="true"></i>
+                          </div>
+                          <img src="images/works/work-01.jpg" alt="">
+                          <figcaption>
+                            <span class="title">BAŞLIK</span><br />
+                            <span class="info">AÇIKLAMA</span>
+                          </figcaption>
+                        </figure>
+                      </a>
+                    </div>
+                    <div class="cbp-item cbp-lightbox motion">
+                      <a href="#" class="cbp-lightbox">
+                        <figure>
+                          <div class="icon">
+                            <i class="fa fa-play" aria-hidden="true"></i>
+                          </div>
+                          <img src="images/works/work-02.jpg" alt="">
+                          <figcaption>
+                            <span class="title">BAŞLIK</span><br />
+                            <span class="info">AÇIKLAMA</span>
+                          </figcaption>
+                        </figure>
+                      </a>
+                    </div>
+                    <div class="cbp-item cbp-lightbox photography">
+                      <a href="images/works/work-06.jpg" class="cbp-lightbox">
+                        <figure>
+                          <div class="icon">
+                            <i class="fa fa-picture-o" aria-hidden="true"></i>
+                          </div>
+                          <img src="images/works/work-06.jpg" alt="">
+                          <figcaption>
+                            <span class="title">BAŞLIK</span><br />
+                            <span class="info">AÇIKLAMA</span>
+                          </figcaption>
+                        </figure>
+                      </a>
+                    </div>
+                    <div class="cbp-item webdesign">
+                      <a href="#" class="cbp-singlePage">
+                        <figure>
+                          <div class="icon">
+                            <i class="fa fa-clone" aria-hidden="true"></i>
+                          </div>
+                          <img src="images/works/work-03.jpg" alt="">
+                          <figcaption>
+                            <span class="title">BAŞLIK</span><br />
+                            <span class="info">AÇIKLAMA</span>
+                          </figcaption>
+                        </figure>
+                      </a>
+                    </div>
+                    <div class="cbp-item motion">
+                      <a href="#" class="cbp-lightbox">
+                        <figure>
+                          <div class="icon">
+                            <i class="fa fa-play" aria-hidden="true"></i>
+                          </div>
+                          <img src="images/works/work-04.jpg" alt="">
+                          <figcaption>
+                            <span class="title">BAŞLIK</span><br />
+                            <span class="info">AÇIKLAMA</span>
+                          </figcaption>
+                        </figure>
+                      </a>
+                    </div>
+                    <div class="cbp-item webdesign">
+                      <a href="#" class="cbp-singlePage">
+                        <figure>
+                          <div class="icon">
+                            <i class="fa fa-clone" aria-hidden="true"></i>
+                          </div>
+                          <img src="images/works/work-05.jpg" alt="">
+                          <figcaption>
+                            <span class="title">BAŞLIK</span><br />
+                            <span class="info">AÇIKLAMA</span>
+                          </figcaption>
+                        </figure>
+                      </a>
+                    </div>
+                    <div class="cbp-item illustration">
+                      <a href="#" class="cbp-singlePage">
+                        <figure>
+                          <div class="icon">
+                            <i class="fa fa-clone" aria-hidden="true"></i>
+                          </div>
+                          <img src="images/works/work-07.jpg" alt="">
+                          <figcaption>
+                            <span class="title">BAŞLIK</span><br />
+                            <span class="info">AÇIKLAMA</span>
+                          </figcaption>
+                        </figure>
+                      </a>
+                    </div>
+                    <div class="cbp-item illustration">
+                      <a href="#" class="cbp-singlePage">
+                        <figure>
+                          <div class="icon">
+                            <i class="fa fa-clone" aria-hidden="true"></i>
+                          </div>
+                          <img src="images/works/work-08.jpg" alt="">
+                          <figcaption>
+                            <span class="title">BAŞLIK</span><br />
+                            <span class="info">AÇIKLAMA</span>
+                          </figcaption>
+                        </figure>
+                      </a>
+                    </div>
+                    <div class="cbp-item illustration">
+                      <a href="#" class="cbp-singlePage">
+                        <figure>
+                          <div class="icon">
+                            <i class="fa fa-clone" aria-hidden="true"></i>
+                          </div>
+                          <img src="images/works/work-09.jpg" alt="">
+                          <figcaption>
+                            <span class="title">BAŞLIK</span><br />
+                            <span class="info">AÇIKLAMA</span>
+                          </figcaption>
+                        </figure>
+                      </a>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div id="blog">
+                <div class="row">
+                  <section class="blog col-md-12 bottom_30">
+                    <div class="col-md-12 content-header">
+                      <div class="section-title top_30 bottom_15"><span></span>
+                        <h2>Yayınlar ve Basın</h2>
+                      </div>
+                    </div>
+                    <div id="grid-blog" class="row">
+                      <div class="cbp-item">
+                        <a href="https://www.karar.com/erzurum/organik-tarim-stklari-verimlilikte-isbirligine-odaklandi-1390533" class="blog-box">
+                          <div class="blog-img">
+                            <img src="images/blogs/karar.jpg" alt="">
+                          </div>
+                          <div class="blog-box-info">
+                            <span class="category">karar.com</span>
+                            <h2 class="title">Organik tarım STK’ları, verimlilikte işbirliğine odaklandı</h2>
+                            <p class="little-text">Erzurum ve son olarak İstanbul’da gerçekleşen 5’er günlük 3 çalıştayın ardından... </p>
+                            <span class="date">21.11.2019</span>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="cbp-item">
+                        <a href="https://www.mynet.com/organik-tarim-stklari-verimlilikte-isbirligine-odaklandi-180104798926" class="blog-box">
+                          <div class="blog-img">
+                            <img src="images/blogs/karar.jpg" alt="">
+                          </div>
+                          <div class="blog-box-info">
+                            <span class="category">mynet.com</span>
+                            <h2 class="title">Organik tarım STK’ları, verimlilikte işbirliğine odaklandı</h2>
+                            <p class="little-text">Avrupa Birliği tarafından finanse edilen ve “Türkiye’de Sivil Toplum Kuruluşlarının Saygınlığının...</p>
+                            <span class="date">21.11.2019</span>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="cbp-item">
+                        <a href="#" class="blog-box">
+                          <div class="blog-img">
+                            <img src="images/blogs/karar.jpg" alt="">
+                          </div>
+                          <div class="blog-box-info">
+                            <span class="category">haberturk.com</span>
+                            <h2 class="title">Organik tarım STK’ları, verimlilikte işbirliğine odaklandık</h2>
+                            <p class="little-text">Avrupa Birliği tarafından finanse edilen ve “Türkiye’de Sivil Toplum Kuruluşlarının Saygınlığının...</p>
+                            <span class="date">21.11.2019</span>
+                          </div>
+                        </a>
+                      </div>
 
-	<div class ="ucuncu">
-			<br>
-			<br>
-			<div class="col-md-4 margin-bottom-20">
-					<h3 class="margin-bottom-10">Adres</h3>
-					
-					<p>Atatürk Üniversitesi, Mühendislik,
-						<br>Yakutiye,
-						<br>Erzurum,
-						<br>Türkiye</p>
-				</div>
-	
-		
-	</div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+              <div id="hakkimizda">
+                <div class="row">
+
+                  <section class="about-me line col-md-12 padding_30 padbot_45">
+                    <div class="section-title"><span></span>
+                      <h2>Derneğimiz Hakkında</h2>
+                    </div>
+                    <p class="top_30">Bölgemizin organik tarım potansiyelini değerlendirmek; bölgemize ve bilimsel yöntemlere uygun üretim çeşitlerini uygulanmak amacıyla derneğimiz 2002 tarihinde kurulmuş ve 3000 üreticiye hizmet vermektedir.
+                      Anadolu’nun, tarım toprağını havasını suyunu koruyarak zarar vermeden, sürdürülebilir üretimi sağlamak, Biyoçeşitliliği korumak, Kontrollü ve sertifikalı üretim metodu ile tüketiciye sağlıklı ürünler sunmayı sağlamak, Örnek
+                      üretim çeşitlerini uygulamak, Farkındalık oluşturmak, Üreticilerin bilimsel yöntemlerle üretim yapmalarını sağlamak Organik tarım faaliyetlerine liderlik etmek, Organik tarımı ekonomik ekolojik ve sosyal açıdan uzun süreli ve
+                      güvenilir olarak sürdürmeye katkı sağlamak, Organik tarımın benimsenmesine katkı sağlamak, Hedeflerimizdir.
+                  </section>
+                </div>
+                <div class="row">
+                  <section class="about-me line col-md-12 padding_30 padbot_45">
+                    <div class="section-title"><span></span>
+                      <h2>About our Association</h2>
+                    </div>
+                    <p class="top_30">Our association was founded in 2002 in order to utilize our region’s organic agriculture potential and to apply scientific production methods that are suitable to our region and currently serves 3000 producers.
+                      Our objectives are: to preserve the agricultural soil, air and water of Anatolia and to establish a sustainable production, to preserve biodiversity, to provide healthy products to the consumer through controlled and certified
+                      production methods, to apply exemplary production varieties, create awareness, apply scientific methods in production, to lead organic agricultural activities, to continue organic farming in an economic, ecological and social
+                      way safely and for a long time, and to contribute to the adoption of organic farming.</p>
+                  </section>
+                </div>
+              </div>
 
 
 
+              <div id="contact">
+                <div class="row">
+                  <section class="contact-form col-md-6 padding_30 padbot_45">
+                    <div class="section-title top_15 bottom_30"><span></span>
+                      <h2>İletişim Formu</h2>
+                    </div>
+                    <form class="site-form">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <input class="site-input" placeholder="İsminiz">
+                        </div>
+                        <div class="col-md-6">
+                          <input class="site-input" placeholder="E-mail">
+                        </div>
+                        <div class="col-md-12">
+                          <textarea class="site-area" placeholder="Mesajınız"></textarea>
+                        </div>
+                        <div class="col-md-12 top_15 bottom_30">
+                          <button class="site-btn" type="submit">Gönder</button>
+                        </div>
+                      </div>
+                    </form>
+                  </section>
+                  <section class="contact-info col-md-6 padding_30 padbot_45">
+                    <div class="section-title top_15 bottom_30"><span></span>
+                      <h2>İletişim Bilgileri</h2>
+                    </div>
+                    <ul>
+                      <li><span>Adres:</span> Lalapaşa Mahallesi Orhan Şerifsoy cad. Onur İş Merkezi, Kat:5 No:29-6</li>
+                      <li><span>Telefon:</span>0(442) 213 1112</li>
+                      <li><span>E-mail:</span>info@dogtarbesbir.org</li>
+                      <li>
+                        <div class="social-icons top_15">
+                          <a class="fb" href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                          <a class="tw" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                          <a class="ins" href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                          <a class="dr" href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                        </div>
+                      </li>
+                    </ul>
+                  </section>
+                  <section class="contact-map col-md-12 top_15 bottom_15">
+                    <div class="section-title bottom_30"><span></span>
+                      <h2>Konum</h2>
+                    </div>
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12241.404667901132!2d41.2730329!3d39.9111569!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb17678be058096f0!2sDo%C4%9Fu+Anadolu+Tar%C4%B1msal+%C3%9Creticiler+Besiciler+Birli%C4%9Fi!5e0!3m2!1str!2str!4v1462790320074"
+                      height="350" style="border:0" allowfullscreen></iframe>
+                  </section>
+                </div>
+              </div>
+              <img style="margin-top:50px;" src="images/Picture1.png" alt="" class="center-block img-responsive">
+            </div>
+          </div>
+        </div>
 
-</div>
 
-
+        <footer>
+          <div class="footer col-md-12 top_30 bottom_30">
+            <div class="name col-md-4 hidden-md hidden-sm hidden-xs">siviltoplumprojem.org</div>
+            <div class="copyright col-lg-8 col-md-12">Avrupa Birliği’nin görüşlerini yansıttığı şeklinde yorumlanamaz.</div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </div>
+  <script src="js/jquery-2.1.4.min.js"></script>
+  <script src="cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easytabs.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/jquery.cookie-1.4.1.min.js"></script>
 </body>
+
 </html>
