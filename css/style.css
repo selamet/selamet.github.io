@@ -365,6 +365,23 @@ h6 {
   color: #777777;
 }
 
+#baglantilar{
+  color:#393e46;
+  transition: transform .2s;
+
+}
+
+#baglantilar:hover{
+  color:#787878;
+  transform: scale(1.5);
+}
+#text-yay{
+  text-align: justify;
+  text-justify: inter-word;
+  text-indent: 40px;
+}
+
+
 .profile-image {
   margin-top: -18px;
   -webkit-clip-path: polygon(0 9%, 100% 0, 100% 94%, 0% 100%);
@@ -1258,12 +1275,12 @@ ul.timeline {
 }
 
 .testimonials .comment .top-section .name-info .name {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
 }
 
 .testimonials .comment .top-section .name-info .job {
-  font-size: 12px;
+  font-size: 19px;
   color: #d0d0d0;
 }
 
