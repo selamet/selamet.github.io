@@ -381,6 +381,21 @@ h6 {
   text-indent: 40px;
 }
 
+#left-istirakciler-parent{
+
+
+
+
+}
+#left-istirakciler{
+  height: 420px;
+  overflow: scroll;
+  background-color: white;
+  margin-top:20px;
+
+}
+
+
 
 .profile-image {
   margin-top: -18px;
