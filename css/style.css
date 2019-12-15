@@ -518,7 +518,7 @@ header nav ul li {
 }
 
 header nav ul li a {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
   color: #000;
   padding: 0 10px;
@@ -1126,10 +1126,10 @@ ul.timeline {
 }
 
 #ab_bayrak {
-  height: 160px;
+  height: 140px;
   display: block;
   top: 50%;
-  transform: translateY(30%);
+  transform: translateY(25%);
 }
 
 @media(max-with:992px){
@@ -1772,6 +1772,7 @@ footer .footer .copyright a:hover {
 
   header nav ul.tabs li {
     display: none;
+
   }
 
   header nav .menuout {
@@ -1801,6 +1802,7 @@ footer .footer .copyright a:hover {
     float: none;
     text-align: center;
     border-bottom: solid 1px #efefef;
+
   }
 
   header nav .menuout .menuin ul.tabs li a {
