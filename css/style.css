@@ -376,6 +376,7 @@ h6 {
   transform: scale(1.5);
 }
 #text-yay{
+  color:black;
   text-align: justify;
   text-justify: inter-word;
   text-indent: 40px;
