@@ -376,7 +376,6 @@ h6 {
   transform: scale(1.5);
 }
 #text-yay{
-  color:black;
   text-align: justify;
   text-justify: inter-word;
   text-indent: 40px;
@@ -550,6 +549,35 @@ header nav a.home-btn {
   transition: all ease 0.4s;
   line-height: 77px;
 }
+
+.card {
+  margin-top: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+  transition: 0.3s;
+  width: 100%;
+  padding: 10px;
+  height: 440px;
+  margin-bottom: 30px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.1);
+}
+.card h4{
+
+  margin:10px;
+  font-size: 22px;
+}
+
+#etkinlik-icerik{
+  padding: 10px;
+  color:black;
+  text-align: justify;
+  text-justify: inter-word;
+
+}
+
+
 
 header nav a.home-btn:hover {
   transition: all ease 0.3s;
