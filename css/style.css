@@ -553,11 +553,16 @@ header nav a.home-btn {
 .card {
   margin-top: 20px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+  -moz-box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
+ -webkit-box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1);
   transition: 0.3s;
   width: 100%;
   padding: 10px;
   height: 440px;
   margin-bottom: 30px;
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
 }
 
 .card:hover {
