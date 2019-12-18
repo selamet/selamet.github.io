@@ -744,6 +744,11 @@ ul.timeline {
 .timeline li:first-child {
   padding: 0 0 60px 19px;
 }
+#lore{
+  margin:0px;
+  padding: 0px;
+  padding-bottom: 30px;
+}
 
 .timeline li:first-child:before {
   border: 0;
