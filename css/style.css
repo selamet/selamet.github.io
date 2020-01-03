@@ -1718,7 +1718,45 @@ footer .footer .copyright a:hover {
   line-height: 28px;
 }
 
+
+
 /*------------------------ 17 Responsive ------------------------*/
+
+@media (max-width: 1199px) {
+  .tab {
+      padding: 0px;
+    
+    }
+    
+    #ug-genel-div {
+        width: 100%;
+    }
+    
+    #ug-icon {
+        display: none;
+    }
+    .site-btn.icon {
+  
+  padding: 1px 20px 1px 19px;
+}
+    /*
+    #ug-h1 {
+        text-align: center;
+        padding-left: 5px;
+        padding-right: 5px;
+        
+    }
+    */
+}
+
+@media (max-width: 1199px) {
+  .tab #ug-1{
+      
+      font-size: 11px;
+    
+    }
+    
+}
 @media (max-width: 1199px) {
   footer .footer .copyright {
     text-align: center;
