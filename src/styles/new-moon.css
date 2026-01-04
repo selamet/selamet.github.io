@@ -1,0 +1,317 @@
+:root {
+  --string: light-dark(#728400, #92d192);
+  --variable: light-dark(#0e2a35, white);
+  --property: light-dark(#697a82, #b3b9c5);
+  --number: light-dark(#b54110, #fca369);
+  --operator: light-dark(#785200, #ac8d58);
+  --punctuation: light-dark(#586e75, #c7cdd7);
+  --comment: light-dark(#657b83, #777c85);
+  --function: light-dark(#1a9489, #76d4d6);
+  --keyword: light-dark(#c32c75, #ffeea6);
+  --attribute: light-dark(#916f14, #ffd479);
+  --class: light-dark(#c32c75, #e1a6f2);
+  --tag: light-dark(#268bd2, #6ab0f3);
+  --error: light-dark(#dc322f, #f2777a);
+  --terminal-bar: light-dark(var(--gray-1), var(--gray-9));
+  --terminal-accent: light-dark(white, var(--gray-6));
+
+  --color-background-inline-code: light-dark(
+    rgba(0, 0, 0, 0.05),
+    rgba(255, 255, 255, 0.08)
+  );
+  --color-background-code-block: light-dark(var(--beige-1), var(--gray-8));
+  --color-border-code-block: light-dark(var(--beige-3), var(--gray-6));
+  --color-background-terminal: light-dark(white, var(--gray-11));
+  --color-background-filename: light-dark(var(--beige-2), var(--gray-7));
+  --color-border-terminal: light-dark(var(--gray-1), var(--color-border));
+}
+
+/* Code blocks */
+code {
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+pre {
+  border: 0;
+}
+
+code[class*='language-'],
+pre[class*='language-'] {
+  color: var(--font-color);
+  font-family: var(--font-family-monospace);
+  font-size: 14px;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.6;
+  tab-size: 2;
+  hyphens: none;
+}
+
+pre[class*='language-'] {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: var(--color-background-code-block);
+  border-radius: var(--border-radius);
+  overflow: initial;
+  font-weight: 400;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+@media screen and (min-width: 800px) {
+  pre[class*='language-'] {
+    padding: 1.5rem;
+  }
+}
+
+/* Inline code */
+:not(pre) > code[class*='language-'] {
+  background: var(--color-background-inline-code);
+  color: var(--color-text);
+  padding: 2px 4px;
+  font-weight: 400;
+  font-size: 0.9rem;
+  border-radius: var(--border-radius);
+}
+
+:not(pre) > a code[class*='language-'] {
+  color: var(--color-text-link);
+}
+
+:not(pre) > a code[class*='language-']:hover {
+  color: var(--color-text-link-hover);
+}
+
+/* Shell */
+
+code.language-shell::before {
+  content: '$ ';
+  color: var(--comment);
+}
+
+pre.language-text {
+  background: transparent;
+  padding: 0;
+  border-color: transparent;
+}
+
+/* Terminal */
+
+.gatsby-highlight pre.language-terminal {
+  -webkit-text-size-adjust: none;
+  padding: 1rem;
+  position: relative;
+  padding-top: 3rem;
+  white-space: unset;
+  border-radius: var(--border-radius);
+  background: var(--color-background-terminal);
+  max-width: 100%;
+  border: 1px solid var(--color-border-terminal);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 15px 20px, rgba(0, 0, 0, 0.3) 0px 5px 15px;
+}
+
+code.language-terminal {
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  white-space: pre-wrap;
+  word-break: break-all;
+
+  &::before {
+    content: '\2022';
+    position: absolute;
+    top: 16px;
+    left: 40px;
+    color: #62c354;
+    font-size: 2.5rem;
+    line-height: 0;
+    text-indent: 6px;
+    letter-spacing: -5px;
+    z-index: 7;
+  }
+}
+
+pre.language-terminal::before {
+  content: '\2022';
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--terminal-bar);
+  color: #ed6a5e;
+  border-top: 1px solid var(--terminal-accent);
+  width: 100%;
+  font-size: 2.5rem;
+  margin: 0;
+  line-height: 0;
+  padding: 15px 0 12px;
+  text-indent: 6px;
+  letter-spacing: -5px;
+  border-bottom: 1px solid var(--color-border-terminal);
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+}
+
+pre.language-terminal::after {
+  content: '\2022';
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  color: #f5bf4f;
+  font-size: 2.5rem;
+  line-height: 0;
+  text-indent: 6px;
+  letter-spacing: -5px;
+}
+
+/* 
+
+/* Highlight line */
+
+.gatsby-highlight-code-line {
+  background-color: light-dark(
+    rgb(116, 207, 116, 0.15),
+    rgb(116, 207, 116, 0.1)
+  );
+  display: block;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+  padding-left: calc(1rem + 4px);
+  border-left: 4px solid #74cf74;
+}
+
+.gatsby-highlight-code-line .gatsby-highlight-code-line {
+  background-color: transparent;
+}
+
+/* Filename */
+
+.filename + .gatsby-highlight pre {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.filename {
+  display: flex;
+  align-items: center;
+  background: var(--color-background-code-block);
+  color: var(--color-text-emphasized);
+  font-size: 15px;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  margin-bottom: -1.5rem;
+  border-bottom: 1px solid var(--color-border);
+  font-weight: 500;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  position: relative;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+}
+
+/* https://dylanatsmith.com/wrote/styling-the-kbd-element */
+kbd {
+  background-color: var(--color-background-sidebar);
+  color: var(--color-text);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 2px 0 1px var(--color-border);
+  font-family: var(--font-family);
+  cursor: default;
+  font-size: 0.75em;
+  line-height: 1;
+  min-width: 0.75rem;
+  width: auto;
+  display: inline-block;
+  text-align: center;
+  padding: 2px 5px;
+  margin: 0 2px;
+  position: relative;
+  top: -1px;
+}
+
+kbd:hover {
+  box-shadow: 0 1px 0 0.5px var(--color-border);
+  top: 1px;
+}
+
+/* Colors */
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata,
+.token.important {
+  color: var(--comment);
+}
+
+.token.punctuation {
+  color: var(--punctuation);
+}
+
+.token.namespace {
+  opacity: 0.7;
+}
+
+.token.property {
+  color: var(--property);
+}
+
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: var(--tag);
+}
+
+.token.number {
+  color: var(--number);
+}
+
+.token.char,
+.token.builtin,
+.token.url,
+.token.inserted {
+  color: var(--color-text);
+}
+
+.token.attr-name,
+.token.selector {
+  color: var(--attribute);
+}
+
+.token.attr-value,
+.token.string {
+  color: var(--string);
+}
+
+.token.operator {
+  color: var(--operator);
+}
+
+.token.atrule,
+.token.keyword {
+  color: var(--keyword);
+}
+
+.token.function {
+  color: var(--function);
+}
+
+.language-css,
+.token.boolean,
+.token.class-name {
+  color: var(--class) !important;
+}
+
+.token.regex {
+  color: var(--keyword);
+}
+
+.token.variable {
+  color: var(--variable);
+}
