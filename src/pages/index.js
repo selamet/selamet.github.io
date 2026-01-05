@@ -39,7 +39,7 @@ export default function Index({ data }) {
         <Hero type="index">
           <div className="hero-wrapper">
             <div>
-              <h1>Selam, ben Selamet!</h1>
+              <h1>Selam, ben Selamet!53</h1>
               <div className="hero-quote">
                 <p className="hero-quote-text">
                 Keep Calm and Trust the Architecture
