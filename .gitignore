@@ -58,6 +58,9 @@ typings/
 .cache/
 public
 
+# IDE files
+.idea/
+
 # Mac files
 .DS_Store
 
