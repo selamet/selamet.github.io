@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useState, useEffect } from 'react'
 import { Link, graphql } from 'gatsby'
 
 import Helmet from 'react-helmet'
@@ -12,10 +12,12 @@ import { PageLayout } from '../components/PageLayout'
 import { projectsList } from '../data/projectsList'
 import { getSimplifiedPosts } from '../utils/helpers'
 import config from '../utils/config'
+import { StarIcon } from '../components/Icons/StarIcon'
 import newMoon from '../assets/nav-floppy.png'
 import floppy from '../assets/floppylogo.png'
 
 export default function Index({ data }) {
+  const [repos, setRepos] = useState([])
   const latestNotes = data?.latestNotes?.edges || []
   const latestArticles = data?.latestArticles?.edges || []
   const highlights = data?.highlights?.edges || []
@@ -29,6 +31,22 @@ export default function Index({ data }) {
     () => getSimplifiedPosts(highlights),
     [highlights]
   )
+
+  useEffect(() => {
+    async function getStars() {
+      const repos = await fetch(
+        'https://api.github.com/users/selamet/repos?per_page=100'
+      )
+
+      return repos.json()
+    }
+
+    getStars()
+      .then((data) => {
+        setRepos(data)
+      })
+      .catch((err) => console.error(err))
+  }, [])
 
   return (
     <>
@@ -122,8 +140,25 @@ export default function Index({ data }) {
             {projectsList
               .filter((project) => project.highlight)
               .map((project) => {
+                const repo = repos.find((repo) => repo.name === project.slug)
+                const starCount = repo ? repo.stargazers_count : 0
+
                 return (
                   <div className="card" key={`hightlight-${project.slug}`}>
+                    {repo && (
+                      <div className="stars">
+                        <div className="star">
+                          <a
+                            href={`https://github.com/selamet/${project.slug}/stargazers`}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            {Number(starCount).toLocaleString()}
+                          </a>
+                          <StarIcon />
+                        </div>
+                      </div>
+                    )}
                     <time>{project.date}</time>
                     <a
                       href={`https://github.com/selamet/${project.slug}`}
