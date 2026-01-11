@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 
 import config from '../utils/config'
 
-export const SEO = ({ postNode, postPath, postSEO, customDescription }) => {
+export const SEO = ({ postNode, postPath, postSEO, customDescription, pagePath }) => {
   let title = config.siteTitle
   let description = customDescription || config.description
   let image = config.siteLogo
@@ -65,7 +65,7 @@ export const SEO = ({ postNode, postPath, postSEO, customDescription }) => {
     )
   }
 
-  const canonicalURL = postSEO ? postURL : config.siteUrl
+  const canonicalURL = postSEO ? postURL : (pagePath ? `${config.siteUrl}${pagePath}` : config.siteUrl)
 
   return (
     <Helmet>

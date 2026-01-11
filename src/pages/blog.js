@@ -28,7 +28,7 @@ export default function Blog({ data }) {
   return (
     <>
       <Helmet title={`${title} | ${config.siteTitle}`} />
-      <SEO customDescription={description} />
+      <SEO customDescription={description} pagePath="/blog" />
       <PageLayout>
         <Hero title={title} description={description} hasSearch icon={projects} />
 

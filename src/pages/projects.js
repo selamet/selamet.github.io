@@ -36,30 +36,32 @@ export default function Projects() {
   return (
     <>
       <Helmet title={`${title} | ${config.siteTitle}`} />
-      <SEO />
+      <SEO pagePath="/projects" />
 
       <PageLayout>
         <Hero title={title} description={description} icon={github} />
 
         <div className="cards">
           {projectsList.map((project) => {
+            const repo = repos.find((repo) => repo.name === project.slug)
+            const starCount = repo ? repo.stargazers_count : 0
+
             return (
               <div className="card" key={project.slug}>
-                <div className="stars">
-                  {repos.find((repo) => repo.name === project.slug) && (
+                {repo && (
+                  <div className="stars">
                     <div className="star">
                       <a
                         href={`https://github.com/selamet/${project.slug}/stargazers`}
+                        target="_blank"
+                        rel="noreferrer"
                       >
-                        {Number(
-                          repos.find((repo) => repo.name === project.slug)
-                            .stargazers_count
-                        ).toLocaleString()}
+                        {Number(starCount).toLocaleString()}
                       </a>
                       <StarIcon />
                     </div>
-                  )}
-                </div>
+                  </div>
+                )}
                 <time>{project.date}</time>
                 <a
                   className="card-header"

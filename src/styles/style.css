@@ -1679,16 +1679,21 @@ a time.new-post {
   border-radius: var(--border-radius);
   border: 2px solid var(--color-border-card);
   box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: column;
 
   p {
     margin-bottom: 1rem;
+    flex-grow: 1;
   }
 
   .card-links {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
+    flex-wrap: wrap;
     gap: 0.5rem;
-    margin-top: 1rem;
+    margin-top: auto;
+    padding-top: 1rem;
   }
 
   a {
@@ -1706,6 +1711,7 @@ a time.new-post {
     gap: 1rem;
     text-decoration: none !important;
     line-height: 1.3;
+    flex-direction: row;
 
     div {
       font-weight: 600;

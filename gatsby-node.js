@@ -8,7 +8,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       frontmatter: MarkdownRemarkFrontmatter!
       fields: MarkdownRemarkFields
     }
-    
+
     type MarkdownRemarkFrontmatter {
       title: String
       date: Date @dateformat
@@ -22,7 +22,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       comments_off: Boolean
       thumbnail: File @fileByRelativePath
     }
-    
+
     type MarkdownRemarkFields {
       slug: String
       category: String
@@ -177,7 +177,12 @@ const createNode = ({ node, actions, getNode }) => {
     if (Object.prototype.hasOwnProperty.call(node.frontmatter, 'slug')) {
       slug = `/${node.frontmatter.slug}/`
     } else {
-      slug = `/${parsedFilePath.dir}/`
+      const fileName = parsedFilePath.name
+      if (parsedFilePath.dir) {
+        slug = `/${parsedFilePath.dir}/${fileName}/`
+      } else {
+        slug = `/${fileName}/`
+      }
     }
 
     createNodeField({

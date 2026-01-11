@@ -235,5 +235,23 @@ module.exports = {
           })),
       },
     },
+
+    // ===================================================================================
+    // Google Analytics
+    // ===================================================================================
+
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          "G-PJVYMQ9JVJ", // Google Analytics 4 Measurement ID
+        ],
+        pluginConfig: {
+          head: true,
+          respectDNT: true,
+          exclude: ["/preview/**", "/do-not-track/me/too/"],
+        },
+      },
+    },
   ],
 }
