@@ -36,7 +36,7 @@ export default function Projects() {
   return (
     <>
       <Helmet title={`${title} | ${config.siteTitle}`} />
-      <SEO />
+      <SEO pagePath="/projects" />
 
       <PageLayout>
         <Hero title={title} description={description} icon={github} />

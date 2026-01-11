@@ -7,6 +7,7 @@ import { slugify } from '../utils/helpers'
 import { PageLayout } from '../components/PageLayout'
 import { Layout } from '../components/Layout'
 import { Hero } from '../components/Hero'
+import { SEO } from '../components/SEO'
 
 export default function Topics({ data }) {
   const tags = data.tags.group
@@ -25,6 +26,7 @@ export default function Topics({ data }) {
   return (
     <>
       <Helmet title={`${title} | ${config.siteTitle}`} />
+      <SEO pagePath="/topics" />
       <PageLayout>
         <Hero
           title={title}

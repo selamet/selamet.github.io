@@ -21,7 +21,7 @@ export default function Notes({ data }) {
   return (
     <>
       <Helmet title={`${title} | ${config.siteTitle}`} />
-      <SEO customDescription={description} />
+      <SEO customDescription={description} pagePath="/notes" />
 
       <PageLayout>
         <Hero title={title} description={description} hasSearch icon={blog} />
