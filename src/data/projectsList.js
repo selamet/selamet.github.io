@@ -17,7 +17,7 @@ export const projectsList = [
   {
     name: 'selamet.dev',
     date: '2025',
-    slug: 'selamet.dev',
+    slug: 'selamet.github.io',
     tagline: 'Kişisel web sitemin kaynak kodu',
     highlight: true,
   },
