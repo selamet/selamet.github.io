@@ -1,6 +1,8 @@
-# selamet.dev
+# [selamet.dev](https://selamet.dev)
 
-Personal website built with Gatsby.
+**Personal website built with Gatsby**
+
+🌐 [Live Site](https://selamet.dev) • 📦 [GitHub Repository](https://github.com/selamet/selamet.github.io)
 
 ## 🚀 Getting Started
 
