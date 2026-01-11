@@ -1,9 +1,9 @@
 const config = {
-  siteTitle: "Selamet Samli's Website",
+  siteTitle: "Selamet's Diary",
   siteUrl: 'https://selamet.dev',
   siteLogo: '/logo.png',
   description:
-    'Yazılım mühendisi ve açık kaynak tutkunu. Burası benim dijital bahçem.',
+    'Software developer & open source creator. It\'s a diary.',
 }
 
 export default config
