@@ -176,7 +176,7 @@ export function MentorshipBanner() {
 
         <div className="mentorship-content">
           <div className="mentorship-badge">
-            {lang === 'tr' ? '🎓 tamamen ücretsiz' : '🎓 completely free'}
+            {lang === 'tr' ? '🎓 ücretsiz' : '🎓 free'}
           </div>
           <h2>
             {lang === 'tr'
