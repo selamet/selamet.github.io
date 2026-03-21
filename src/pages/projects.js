@@ -10,12 +10,13 @@ import { PageLayout } from '../components/PageLayout'
 import config from '../utils/config'
 import { projectsList } from '../data/projectsList'
 import github from '../assets/nav-github.png'
+import { useLanguage } from '../context/LanguageContext'
 
 export default function Projects() {
+  const { t } = useLanguage()
   const [repos, setRepos] = useState([])
-  const title = 'Projeler'
-  const description =
-    'Geliştirdiğim projeler'
+  const title = t('projects.title')
+  const description = t('projects.description')
 
   useEffect(() => {
     async function getStars() {
@@ -78,7 +79,7 @@ export default function Projects() {
                       className="button secondary small"
                       to={project.writeup}
                     >
-                      Yazı
+                      {t('projects.writeup')}
                     </Link>
                   )}
                   {project.url && (
@@ -88,7 +89,7 @@ export default function Projects() {
                       target="_blank"
                       rel="noreferrer"
                     >
-                      Uygulamaya Git
+                      {t('projects.liveDemo')}
                     </a>
                   )}
                   <a
@@ -97,7 +98,7 @@ export default function Projects() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    Kaynak Kod
+                    {t('projects.sourceCode')}
                   </a>
                 </div>
               </div>
