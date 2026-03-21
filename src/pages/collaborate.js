@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Helmet from 'react-helmet'
-import { Code2, Layers } from 'lucide-react'
+import { Code2, Layers, Container, Lightbulb } from 'lucide-react'
 
 import { Layout } from '../components/Layout'
 import { SEO } from '../components/SEO'
@@ -213,6 +213,135 @@ function todosReducer(state = initialState, action) {
       ],
     },
   },
+  {
+    id: 'devops',
+    type: 'backend',
+    accent: '#c47b3a',
+    icon: Container,
+    title: { tr: 'DevOps Challenge', en: 'DevOps Challenge' },
+    desc: {
+      tr: 'AWS ECS task definition\'ını yapılandır.',
+      en: 'Configure an AWS ECS task definition.',
+    },
+    puzzle: {
+      type: 'backend',
+      title: 'AWS ECS Task Definition',
+      description: `Complete the ECS task definition object for a Node.js web service running on Fargate.
+
+Requirements:
+- Container named \`api\`, image \`my-org/api:latest\`, port \`3000\`
+- Fargate compatible, Linux, \`awsvpc\` network mode
+- Task memory: \`512\` MiB, CPU: \`256\` units
+- Log driver: \`awslogs\` with group \`/ecs/api\``,
+      starterCode: `// Complete the ECS task definition object.
+// Return it from the function — do not rename the function.
+
+function getTaskDefinition() {
+  return {
+    family: 'api-task',
+    networkMode: '', // YOUR CODE HERE
+    requiresCompatibilities: [], // YOUR CODE HERE
+    cpu: '', // YOUR CODE HERE — as string
+    memory: '', // YOUR CODE HERE — as string
+    runtimePlatform: {
+      operatingSystemFamily: '', // YOUR CODE HERE
+    },
+    containerDefinitions: [
+      {
+        name: '', // YOUR CODE HERE
+        image: '', // YOUR CODE HERE
+        portMappings: [
+          {
+            containerPort: 0, // YOUR CODE HERE
+            protocol: 'tcp',
+          },
+        ],
+        logConfiguration: {
+          logDriver: '', // YOUR CODE HERE
+          options: {
+            'awslogs-group': '', // YOUR CODE HERE
+            'awslogs-region': 'us-east-1',
+            'awslogs-stream-prefix': 'ecs',
+          },
+        },
+      },
+    ],
+  }
+}`,
+      testCases: [
+        {
+          description: 'networkMode is "awsvpc"',
+          run: (fn) => {
+            const d = fn()
+            if (d.networkMode !== 'awsvpc') throw new Error(`Expected "awsvpc", got "${d.networkMode}"`)
+          },
+        },
+        {
+          description: 'requiresCompatibilities includes "FARGATE"',
+          run: (fn) => {
+            const d = fn()
+            if (!Array.isArray(d.requiresCompatibilities) || !d.requiresCompatibilities.includes('FARGATE'))
+              throw new Error(`Expected ["FARGATE"], got ${JSON.stringify(d.requiresCompatibilities)}`)
+          },
+        },
+        {
+          description: 'cpu is "256" and memory is "512"',
+          run: (fn) => {
+            const d = fn()
+            if (d.cpu !== '256') throw new Error(`cpu: expected "256", got "${d.cpu}"`)
+            if (d.memory !== '512') throw new Error(`memory: expected "512", got "${d.memory}"`)
+          },
+        },
+        {
+          description: 'operatingSystemFamily is "LINUX"',
+          run: (fn) => {
+            const d = fn()
+            if (d.runtimePlatform?.operatingSystemFamily !== 'LINUX')
+              throw new Error(`Expected "LINUX", got "${d.runtimePlatform?.operatingSystemFamily}"`)
+          },
+        },
+        {
+          description: 'Container name is "api" and image is "my-org/api:latest"',
+          run: (fn) => {
+            const c = fn().containerDefinitions[0]
+            if (c.name !== 'api') throw new Error(`container name: expected "api", got "${c.name}"`)
+            if (c.image !== 'my-org/api:latest') throw new Error(`image: expected "my-org/api:latest", got "${c.image}"`)
+          },
+        },
+        {
+          description: 'containerPort is 3000',
+          run: (fn) => {
+            const port = fn().containerDefinitions[0].portMappings[0].containerPort
+            if (port !== 3000) throw new Error(`Expected 3000, got ${port}`)
+          },
+        },
+        {
+          description: 'logDriver is "awslogs" and group is "/ecs/api"',
+          run: (fn) => {
+            const log = fn().containerDefinitions[0].logConfiguration
+            if (log.logDriver !== 'awslogs') throw new Error(`logDriver: expected "awslogs", got "${log.logDriver}"`)
+            if (log.options['awslogs-group'] !== '/ecs/api') throw new Error(`awslogs-group: expected "/ecs/api", got "${log.options['awslogs-group']}"`)
+          },
+        },
+      ],
+    },
+  },
+  {
+    id: 'idea',
+    type: 'idea',
+    accent: '#9370b8',
+    icon: Lightbulb,
+    title: { tr: 'Sadece Bir Fikrim Var', en: 'I Just Have an Idea' },
+    desc: {
+      tr: 'Teknik bilgin olmak zorunda değil. Fikrin varsa yazalım.',
+      en: "You don't need to be technical. If you have an idea, let's talk.",
+    },
+    puzzle: {
+      type: 'idea',
+      title: 'Tell Me Your Idea',
+      description: 'Describe what you want to build — no code required.',
+    },
+  },
 ]
 
 export default function Collaborate() {
@@ -251,17 +380,21 @@ export default function Collaborate() {
                   <p className="collaborate-card-tagline">{ch.desc[lang] || ch.desc.en}</p>
                 </div>
 
-                <div className="collaborate-card-puzzle">
-                  <p className="collaborate-puzzle-desc">
-                    {ch.puzzle.description.split('\n')[0]}
-                  </p>
-                </div>
+                {ch.type !== 'idea' && (
+                  <div className="collaborate-card-puzzle">
+                    <p className="collaborate-puzzle-desc">
+                      {ch.puzzle.description.split('\n')[0]}
+                    </p>
+                  </div>
+                )}
 
                 <button
                   className="button primary collaborate-start-btn"
                   onClick={() => setActiveChallenge(ch)}
                 >
-                  {lang === 'tr' ? 'Başla' : 'Start Challenge'}
+                  {ch.type === 'idea'
+                    ? (lang === 'tr' ? 'Fikri Anlat' : 'Share Your Idea')
+                    : (lang === 'tr' ? 'Başla' : 'Start Challenge')}
                 </button>
               </div>
             )
