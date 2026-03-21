@@ -180,8 +180,8 @@ export function MentorshipBanner() {
           </div>
           <h2>
             {lang === 'tr'
-              ? 'Herkesin bir soru işareti dönemi vardır.'
-              : 'Everyone has a question mark phase.'}
+              ? 'Yandaki kediler gibi mi hissediyorsun?'
+              : 'Feeling like those cats next to you?'}
           </h2>
           <p>
             {lang === 'tr'
