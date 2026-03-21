@@ -543,13 +543,23 @@ button.navbar-button {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0.25rem;
   border: 1px solid transparent;
   background: transparent;
   padding: 0.5rem;
-  height: 38px;
-  width: 38px;
+  height: 32px;
+  width: 32px;
   color: var(--color-text-navbar-link);
   box-shadow: none;
+
+  &.lang-toggle {
+    width: auto;
+    padding: 0.5rem 0.6rem;
+    font-family: var(--font-family-monospace);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
 
   img {
     margin: 0;
