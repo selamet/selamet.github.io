@@ -2,24 +2,15 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 import { SocialIcon } from 'react-social-icons'
 
-import floppy from '../assets/floppylogo.png'
 import floppyLogo from '../assets/nav-floppy.png'
-import blog from '../assets/nav-blog.png'
-import projects from '../assets/nav-projects.png'
-import github from '../assets/nav-github.png'
+import { Terminal, FileText, Code2, CircleUser, Globe, GitBranch } from 'lucide-react'
 import { Moon } from './Icons/Moon'
 import { Sun } from './Icons/Sun'
 import { Menu } from './Icons/Menu'
 import { Close } from './Icons/Close'
 import { Searchbar } from './Searchbar'
 import { ColorDropdown } from './ColorDropdown'
-
-const links = [
-  { url: '/blog', label: 'Blog', image: projects },
-  { url: '/notes', label: 'Notlar', image: blog },
-  { url: '/projects', label: 'Projeler', image: github },
-  { url: '/me', label: 'Hakkımda', image: floppy },
-]
+import { useLanguage } from '../context/LanguageContext'
 
 const socialLinks = [
   { url: 'https://github.com/selamet' },
@@ -32,9 +23,18 @@ export const Navigation = ({
   currentColor,
   setCurrentColor,
 }) => {
+  const { lang, toggleLang, t } = useLanguage()
   const [currentPath, setCurrentPath] = useState('')
   const [navOpen, setNavOpen] = useState(false)
   const [query, setQuery] = useState('')
+
+  const links = [
+    { url: '/blog', label: t('nav.blog'), icon: Terminal },
+    { url: '/notes', label: t('nav.notes'), icon: FileText },
+    { url: '/projects', label: t('nav.projects'), icon: Code2 },
+    { url: '/collaborate', label: t('nav.collaborate'), icon: GitBranch },
+    { url: '/me', label: t('nav.about'), icon: CircleUser },
+  ]
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -65,7 +65,7 @@ export const Navigation = ({
                 width="16"
               />
             </span>
-            <span className="site-name">Selamet Samli</span>
+            <span className="site-name">Selamet's Diary</span>
           </Link>
         </div>
       </div>
@@ -98,17 +98,20 @@ export const Navigation = ({
                 activeClassName="active"
                 onClick={handleCloseMobileNav}
               >
-                <img src={link.image} alt={link.label} />
+                <link.icon size={15} />
                 {link.label}
               </Link>
             ))}
           </nav>
           <nav className="navbar-menu social">
+            <button className="navbar-button lang-toggle" onClick={toggleLang} title={lang === 'tr' ? 'Switch to English' : 'Türkçeye geç'}>
+              <Globe size={14} />
+              <span>{lang.toUpperCase()}</span>
+            </button>
             <button
               className="navbar-button"
               onClick={() => {
                 const newTheme = theme === 'dark' ? 'light' : 'dark'
-
                 handleUpdateTheme(newTheme)
               }}
             >

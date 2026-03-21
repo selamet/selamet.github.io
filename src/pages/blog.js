@@ -10,18 +10,18 @@ import { PageLayout } from '../components/PageLayout'
 import { getSimplifiedPosts } from '../utils/helpers'
 import projects from '../assets/nav-projects.png'
 import config from '../utils/config'
+import { useLanguage } from '../context/LanguageContext'
 
 export default function Blog({ data }) {
+  const { t } = useLanguage()
   const posts = data?.posts?.edges || []
   const simplifiedPosts = useMemo(() => getSimplifiedPosts(posts), [posts])
-  const title = 'Blog'
+  const title = t('blog.title')
 
   const description = (
     <div>
-      {
-        'Rehberler, referanslar ve öğreticiler. Programlama, web geliştirme ve tasarım hakkında. '
-      }
-      <Link to="/topics">Tüm konuları görüntüle.</Link>
+      {t('blog.description')}
+      <Link to="/topics">{t('blog.viewAllTopics')}</Link>
     </div>
   )
 

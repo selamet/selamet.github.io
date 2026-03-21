@@ -3,12 +3,10 @@ import { Link } from 'gatsby'
 
 import { ColorDropdown } from './ColorDropdown'
 import floppyLogo from '../assets/nav-floppy.png'
-import floppy from '../assets/floppylogo.png'
-import blog from '../assets/nav-blog.png'
-import projects from '../assets/nav-projects.png'
-import github from '../assets/nav-github.png'
+import { Terminal, FileText, Code2, CircleUser, Globe, GitBranch } from 'lucide-react'
 import { Moon } from './Icons/Moon'
 import { Sun } from './Icons/Sun'
+import { useLanguage } from '../context/LanguageContext'
 
 export const Sidebar = ({
   theme,
@@ -16,11 +14,14 @@ export const Sidebar = ({
   currentColor,
   setCurrentColor,
 }) => {
+  const { lang, toggleLang, t } = useLanguage()
+
   const links = [
-    { url: '/blog', label: 'Blog', image: projects },
-    { url: '/notes', label: 'Notlar', image: blog },
-    { url: '/projects', label: 'Projeler', image: github },
-    { url: '/me', label: 'Hakkımda', image: floppy },
+    { url: '/blog', label: t('nav.blog'), icon: Terminal },
+    { url: '/notes', label: t('nav.notes'), icon: FileText },
+    { url: '/projects', label: t('nav.projects'), icon: Code2 },
+    { url: '/collaborate', label: t('nav.collaborate'), icon: GitBranch },
+    { url: '/me', label: t('nav.about'), icon: CircleUser },
   ]
 
   return (
@@ -38,9 +39,15 @@ export const Sidebar = ({
                 width="16"
               />
             </span>
-            <span className="site-name">Selamet Samli</span>
+            <span className="site-name">Selamet's Diary</span>
           </Link>
           <div className="flex-align-center">
+            <div className="tooltip-container">
+              <button className="navbar-button" onClick={toggleLang}>
+                <Globe size={16} />
+              </button>
+              <div className="tooltip">{lang === 'tr' ? 'EN' : 'TR'}</div>
+            </div>
             <ColorDropdown
               currentColor={currentColor}
               setCurrentColor={setCurrentColor}
@@ -50,7 +57,6 @@ export const Sidebar = ({
                 className="navbar-button"
                 onClick={() => {
                   const newTheme = theme === 'dark' ? 'light' : 'dark'
-
                   handleUpdateTheme(newTheme)
                 }}
               >
@@ -63,11 +69,9 @@ export const Sidebar = ({
       </section>
 
       <section className="sidebar-section">
-        <h2>Hakkımda</h2>
+        <h2>{t('sidebar.about')}</h2>
         <div className="sidebar-content">
-          <p>
-            Ben <Link to="/me">Selamet</Link>, yazılım geliştircisiyim ve neon üretircisiyim. Burada bir takım teknik yazılar paylaşıyor olacağım 🌱
-          </p>
+          <p>{t('sidebar.bio')}</p>
         </div>
       </section>
 
@@ -75,7 +79,7 @@ export const Sidebar = ({
         <nav className="sidebar-nav-links">
           {links.map((link) => (
             <Link key={link.url} to={link.url} activeClassName="active">
-              <img src={link.image} alt={link.label} />
+              <link.icon size={15} />
               {link.label}
             </Link>
           ))}
@@ -83,7 +87,7 @@ export const Sidebar = ({
       </section>
 
       <section className="sidebar-section">
-        <h2>İletişim</h2>
+        <h2>{t('sidebar.contact')}</h2>
         <p className="sidebar-links">
           <a
             href="https://github.com/selamet"

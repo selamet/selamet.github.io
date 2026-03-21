@@ -10,13 +10,14 @@ import { SEO } from '../components/SEO'
 import { PageLayout } from '../components/PageLayout'
 import { getSimplifiedPosts } from '../utils/helpers'
 import config from '../utils/config'
+import { useLanguage } from '../context/LanguageContext'
 
 export default function Notes({ data }) {
+  const { t } = useLanguage()
   const posts = data?.posts?.edges || []
   const simplifiedPosts = useMemo(() => getSimplifiedPosts(posts), [posts])
-  const title = 'Notlar'
-  const description =
-    'Hayat, müzik, projeler ve diğer her şey hakkında kişisel notlar.'
+  const title = t('notes.title')
+  const description = t('notes.description')
 
   return (
     <>

@@ -1,11 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: "Selamet Samli's Website",
+    title: "Selamet's Diary",
     author: { name: 'Selamet Samli' },
     pathPrefix: '/',
     siteUrl: 'https://selamet.dev',
-    description:
-      'Software engineer and open-source creator. This is my digital garden.',
+    description: "Software developer & open source creator. It's a diary.",
     feedUrl: 'https://selamet.dev/rss.xml',
     logo: 'https://selamet.dev/logo.png',
   },

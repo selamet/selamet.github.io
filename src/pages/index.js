@@ -15,8 +15,10 @@ import config from '../utils/config'
 import { StarIcon } from '../components/Icons/StarIcon'
 import newMoon from '../assets/nav-floppy.png'
 import floppy from '../assets/floppylogo.png'
+import { useLanguage } from '../context/LanguageContext'
 
 export default function Index({ data }) {
+  const { lang, t } = useLanguage()
   const [repos, setRepos] = useState([])
   const latestNotes = data?.latestNotes?.edges || []
   const latestArticles = data?.latestArticles?.edges || []
@@ -57,21 +59,33 @@ export default function Index({ data }) {
         <Hero type="index">
           <div className="hero-wrapper">
             <div>
-              <h1>Selam, ben Selamet!</h1>
+              <h1>{t('index.greeting')}</h1>
               <div className="hero-quote">
                 <p className="hero-quote-text">
-                Keep Calm and Trust the Architecture
+                  Keep Calm and Trust the Architecture
                 </p>
               </div>
               <p className="hero-description">
-                Python ile uğraşıyorum. Arada sistemler kuruyorum, arada
-                sistemleri bozup neden bozulduğunu yazıyorum. Neon seviyorum, log
-                seviyorum, <span className="prod-quote">"prod'da çalışıyor"</span>{' '}
-                cümlesine mesafeliyim.
+                {lang === 'tr' ? (
+                  <>
+                    Python ile uğraşıyorum. Arada sistemler kuruyorum, arada
+                    sistemleri bozup neden bozulduğunu yazıyorum. Neon seviyorum,
+                    log seviyorum,{' '}
+                    <span className="prod-quote">"prod'da çalışıyor"</span>{' '}
+                    cümlesine mesafeliyim.
+                  </>
+                ) : (
+                  <>
+                    I work with Python. Sometimes I build systems, sometimes I
+                    break them and write about why. I love neon, I love logs,
+                    and I&apos;m skeptical of the phrase{' '}
+                    <span className="prod-quote">"it works in prod"</span>.
+                  </>
+                )}
               </p>
               <div className="hero-buttons">
                 <Link className="button" to="/me">
-                  <img src={floppy} alt="Floppy Logo" /> Hakkımda
+                  {t('index.aboutBtn')}
                 </Link>
                 <a
                   href="https://github.com/selamet"
@@ -79,7 +93,7 @@ export default function Index({ data }) {
                   rel="noopener noreferrer"
                   target="_blank"
                 >
-                  <img src={newMoon} alt="GitHub" /> GitHub
+                  GitHub
                 </a>
               </div>
             </div>
@@ -92,26 +106,26 @@ export default function Index({ data }) {
 
         <section className="section-index">
           <Heading
-            title="Blog"
-            description="Rehberler, referanslar ve öğreticiler."
+            title={t('index.blogTitle')}
+            description={t('index.blogDesc')}
           />
           <Posts data={articles} />
         </section>
 
         <section className="section-index">
           <Heading
-            title="Notlar"
-            description="Hayat, müzik, projeler ve diğer her şey."
+            title={t('index.notesTitle')}
+            description={t('index.notesDesc')}
           />
           <Posts data={notes} />
         </section>
 
         <section className="section-index">
           <Heading
-            title="Öne Çıkanlar"
+            title={t('index.highlightsTitle')}
             slug="/topics"
-            buttonText="Tüm Konular"
-            description="Çeşitli geliştirme konularında uzun format öğreticiler."
+            buttonText={t('index.allTopics')}
+            description={t('index.highlightsDesc')}
           />
           <div className="cards">
             {simplifiedHighlights.map((post) => {
@@ -130,10 +144,10 @@ export default function Index({ data }) {
 
         <section>
           <Heading
-            title="Projeler"
+            title={t('index.projectsTitle')}
             slug="/projects"
-            buttonText="Tüm Projeler"
-            description="Yıllar boyunca üzerinde çalıştığım açık kaynak projeler."
+            buttonText={t('index.allProjects')}
+            description={t('index.projectsDesc')}
           />
 
           <div className="cards">
@@ -174,7 +188,7 @@ export default function Index({ data }) {
                           className="button secondary small"
                           to={project.writeup}
                         >
-                          Yazı
+                          {t('index.writeup')}
                         </Link>
                       )}
                       {project.url && (
@@ -184,7 +198,7 @@ export default function Index({ data }) {
                           target="_blank"
                           rel="noreferrer"
                         >
-                          Uygulamaya Git
+                          {t('index.liveDemo')}
                         </a>
                       )}
                       <a
@@ -193,7 +207,7 @@ export default function Index({ data }) {
                         target="_blank"
                         rel="noreferrer"
                       >
-                        Kaynak Kod
+                        {t('index.sourceCode')}
                       </a>
                     </div>
                   </div>

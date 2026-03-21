@@ -5,6 +5,7 @@ import favicon from '../assets/nav-floppy.png'
 import { Navigation } from './Navigation'
 import { Footer } from './Footer'
 import { Sidebar } from './Sidebar'
+import { LanguageProvider } from '../context/LanguageContext'
 
 import '../styles/style.css'
 import '../styles/new-moon.css'
@@ -55,29 +56,31 @@ export const Layout = ({ children }) => {
   }, [])
 
   return (
-    <div>
-      <Helmet>
-        <link rel="shortcut icon" type="image/png" href={favicon} />
-      </Helmet>
+    <LanguageProvider>
+      <div>
+        <Helmet>
+          <link rel="shortcut icon" type="image/png" href={favicon} />
+        </Helmet>
 
-      <div id="layout" className="layout">
-        <Navigation
-          handleUpdateTheme={handleUpdateTheme}
-          theme={theme}
-          currentColor={currentColor}
-          setCurrentColor={setCurrentColor}
-        />
-        <Sidebar
-          handleUpdateTheme={handleUpdateTheme}
-          theme={theme}
-          currentColor={currentColor}
-          setCurrentColor={setCurrentColor}
-        />
-        <div className="main-wrapper">
-          <div className="main-container">{children}</div>
-          <Footer />
+        <div id="layout" className="layout">
+          <Navigation
+            handleUpdateTheme={handleUpdateTheme}
+            theme={theme}
+            currentColor={currentColor}
+            setCurrentColor={setCurrentColor}
+          />
+          <Sidebar
+            handleUpdateTheme={handleUpdateTheme}
+            theme={theme}
+            currentColor={currentColor}
+            setCurrentColor={setCurrentColor}
+          />
+          <div className="main-wrapper">
+            <div className="main-container">{children}</div>
+            <Footer />
+          </div>
         </div>
       </div>
-    </div>
+    </LanguageProvider>
   )
 }
