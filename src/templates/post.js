@@ -47,7 +47,7 @@ export default function PostTemplate({ data }) {
             })}
             {translationSlug && (
               <Link
-                to={`/${translationSlug}/`}
+                to={`/posts/${translationSlug}/`}
                 className="button secondary small translation-link"
               >
                 🌐 {lang === 'tr' ? 'Read in English' : 'Türkçe oku'}
