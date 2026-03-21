@@ -16,6 +16,7 @@ import { StarIcon } from '../components/Icons/StarIcon'
 import newMoon from '../assets/nav-floppy.png'
 import floppy from '../assets/floppylogo.png'
 import { useLanguage } from '../context/LanguageContext'
+import { MentorshipBanner } from '../components/MentorshipBanner'
 
 export default function Index({ data }) {
   const { lang, t } = useLanguage()
@@ -141,6 +142,8 @@ export default function Index({ data }) {
             })}
           </div>
         </section>
+
+        <MentorshipBanner />
 
         <section>
           <Heading
