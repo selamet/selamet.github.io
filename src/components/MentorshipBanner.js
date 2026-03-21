@@ -176,26 +176,17 @@ export function MentorshipBanner() {
 
         <div className="mentorship-content">
           <div className="mentorship-badge">
-            {lang === 'tr' ? '🎓 öğrencilere özel · ücretsiz' : '🎓 for students · free'}
+            {lang === 'tr' ? '🎓 öğrencilere · ücretsiz' : '🎓 students · free'}
           </div>
           <h2>
             {lang === 'tr'
-              ? 'Yukarıdaki kediler gibi mi hissediyorsun?'
-              : 'Feeling like one of those cats up there?'}
+              ? 'Herkesin bir soru işareti dönemi vardır.'
+              : 'Everyone has a question mark phase.'}
           </h2>
           <p>
             {lang === 'tr'
-              ? <>
-                  Üniversitedeysen ya da kariyerinin başındaysan ve <strong>backend, sistem tasarımı veya "ne öğrensem?"</strong> soruları kafanda dönüyorsa — bu tamamen normal.
-                  <br /><br />
-                  Ücretsiz 1:1 görüşmelerde birlikte bakıyoruz. Sormaktan çekinme, aptal soru diye bir şey yok.
-                </>
-              : <>
-                  If you're a student or early in your career and questions about <strong>backend, system design, or "what should I even learn?"</strong> keep spinning in your head — that's completely normal.
-                  <br /><br />
-                  We sort it out together in free 1:1 sessions. No question is too basic.
-                </>
-            }
+              ? 'Backend, sistem tasarımı, kariyer — takıldığın yerde yalnız kalma. Ücretsiz 1:1 görüşelim.'
+              : 'Backend, system design, career — don\'t get stuck alone. Let\'s have a free 1:1.'}
           </p>
           <button className="button mentorship-cta" onClick={() => setOpen(true)}>
             {lang === 'tr' ? 'Başvur' : 'Apply'}
