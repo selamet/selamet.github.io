@@ -1986,6 +1986,22 @@ a time.new-post {
     }
   }
 
+  textarea {
+    font-family: var(--font-family);
+    font-size: 0.9rem;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--color-border-card);
+    border-radius: var(--border-radius);
+    background: var(--color-background-card);
+    color: var(--color-text-emphasized);
+    resize: vertical;
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-primary);
+    }
+  }
+
   .button { display: inline-flex; align-items: center; gap: 6px; align-self: flex-start; }
 }
 

@@ -34,6 +34,7 @@ export function PuzzleChallenge({ project, onClose }) {
   const [parseError, setParseError] = useState(null)
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
+  const [idea, setIdea] = useState('')
   const [submitState, setSubmitState] = useState('idle') // idle | sending | done | error
   const iframeRef = useRef(null)
 
@@ -75,7 +76,7 @@ export function PuzzleChallenge({ project, onClose }) {
         {
           from_name: name,
           from_email: email,
-          project_name: project.name,
+          project_idea: idea,
           puzzle_title: puzzle.title,
           puzzle_type: puzzle.type,
           solution_code: code,
@@ -199,6 +200,13 @@ export function PuzzleChallenge({ project, onClose }) {
                   placeholder="Your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+                <textarea
+                  placeholder="What do you want to build? Briefly describe your idea..."
+                  value={idea}
+                  onChange={(e) => setIdea(e.target.value)}
+                  rows={3}
                   required
                 />
                 <button
