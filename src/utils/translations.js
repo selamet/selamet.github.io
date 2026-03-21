@@ -14,7 +14,7 @@ const translations = {
     index: {
       greeting: 'Selam, ben Selamet!',
       description:
-        "Python ile uğraşıyorum. Arada sistemler kuruyorum, arada sistemleri bozup neden bozulduğunu yazıyorum. Neon seviyorum, log seviyorum, "prod'da çalışıyor" cümlesine mesafeliyim.",
+        "Python ile uğraşıyorum. Arada sistemler kuruyorum, arada sistemleri bozup neden bozulduğunu yazıyorum. Neon seviyorum, log seviyorum, \u201cprod'da çalışıyor\u201d cümlesine mesafeliyim.",
       aboutBtn: 'Hakkımda',
       blogTitle: 'Blog',
       blogDesc: 'Rehberler, referanslar ve öğreticiler.',
@@ -104,7 +104,7 @@ const translations = {
     index: {
       greeting: "Hey, I'm Selamet!",
       description:
-        "I work with Python. Sometimes I build systems, sometimes I break them and write about why. I love neon, I love logs, and I'm skeptical of the phrase \"it works in prod\".",
+        "I work with Python. Sometimes I build systems, sometimes I break them and write about why. I love neon, I love logs, and I\u2019m skeptical of the phrase \u201cit works in prod\u201d.",
       aboutBtn: 'About Me',
       blogTitle: 'Blog',
       blogDesc: 'Guides, references and tutorials.',
