@@ -339,7 +339,7 @@ function getTaskDefinition() {
     puzzle: {
       type: 'idea',
       title: 'Tell Me Your Idea',
-      description: 'Describe what you want to build — no code required.',
+      description: 'No code required. Just describe what you want to build, who it is for, and what problem it solves.',
     },
   },
 ]
@@ -380,13 +380,11 @@ export default function Collaborate() {
                   <p className="collaborate-card-tagline">{ch.desc[lang] || ch.desc.en}</p>
                 </div>
 
-                {ch.type !== 'idea' && (
-                  <div className="collaborate-card-puzzle">
-                    <p className="collaborate-puzzle-desc">
-                      {ch.puzzle.description.split('\n')[0]}
-                    </p>
-                  </div>
-                )}
+                <div className="collaborate-card-puzzle">
+                  <p className="collaborate-puzzle-desc">
+                    {ch.puzzle.description.split('\n')[0]}
+                  </p>
+                </div>
 
                 <button
                   className="button primary collaborate-start-btn"
