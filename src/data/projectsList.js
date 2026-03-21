@@ -4,7 +4,10 @@ export const projectsList = [
     date: '2025',
     slug: 'letsraffle-api',
     tagline: 'Online yılbaşı çekilişi platformu',
+    tagline_en: 'Online raffle & giveaway platform',
     url: 'https://letsraffle.co',
+    stack: ['Node.js', 'PostgreSQL', 'REST API'],
+    accent: '#5a9e6f',
     highlight: true,
   },
   {
@@ -12,6 +15,9 @@ export const projectsList = [
     date: '2025',
     slug: 'aws-tools',
     tagline: 'AWS görev otomasyonu, hata ayıklama ve bulut kaynak yönetimi için pratik scriptler',
+    tagline_en: 'Practical scripts for AWS task automation, debugging and cloud resource management',
+    stack: ['Python', 'AWS', 'CLI'],
+    accent: '#c47b3a',
     highlight: true,
   },
   {
@@ -19,6 +25,10 @@ export const projectsList = [
     date: '2025',
     slug: 'selamet.github.io',
     tagline: 'Kişisel web sitemin kaynak kodu',
+    tagline_en: 'Source code of my personal website',
+    url: 'https://selamet.dev',
+    stack: ['Gatsby', 'React', 'PostCSS'],
+    accent: '#5b8abf',
     highlight: true,
   },
 ]
