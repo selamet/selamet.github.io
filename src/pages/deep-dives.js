@@ -10,13 +10,14 @@ import { SEO } from '../components/SEO'
 import { PageLayout } from '../components/PageLayout'
 import { getSimplifiedPosts } from '../utils/helpers'
 import config from '../utils/config'
+import { useLanguage } from '../context/LanguageContext'
 
 export default function DeepDives({ data }) {
+  const { t } = useLanguage()
   const posts = data?.posts?.edges || []
   const simplifiedPosts = useMemo(() => getSimplifiedPosts(posts), [posts])
-  const title = 'Deep Dives'
-  const description =
-    'Çeşitli geliştirme konularında uzun format öğreticiler ve derinlemesine incelemeler.'
+  const title = t('deepDives.title')
+  const description = t('deepDives.description')
 
   return (
     <>
