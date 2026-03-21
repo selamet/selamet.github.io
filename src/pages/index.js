@@ -18,7 +18,7 @@ import floppy from '../assets/floppylogo.png'
 import { useLanguage } from '../context/LanguageContext'
 
 export default function Index({ data }) {
-  const { t } = useLanguage()
+  const { lang, t } = useLanguage()
   const [repos, setRepos] = useState([])
   const latestNotes = data?.latestNotes?.edges || []
   const latestArticles = data?.latestArticles?.edges || []
@@ -65,7 +65,24 @@ export default function Index({ data }) {
                   Keep Calm and Trust the Architecture
                 </p>
               </div>
-              <p className="hero-description">{t('index.description')}</p>
+              <p className="hero-description">
+                {lang === 'tr' ? (
+                  <>
+                    Python ile uğraşıyorum. Arada sistemler kuruyorum, arada
+                    sistemleri bozup neden bozulduğunu yazıyorum. Neon seviyorum,
+                    log seviyorum,{' '}
+                    <span className="prod-quote">"prod'da çalışıyor"</span>{' '}
+                    cümlesine mesafeliyim.
+                  </>
+                ) : (
+                  <>
+                    I work with Python. Sometimes I build systems, sometimes I
+                    break them and write about why. I love neon, I love logs,
+                    and I&apos;m skeptical of the phrase{' '}
+                    <span className="prod-quote">"it works in prod"</span>.
+                  </>
+                )}
+              </p>
               <div className="hero-buttons">
                 <Link className="button" to="/me">
                   {t('index.aboutBtn')}
