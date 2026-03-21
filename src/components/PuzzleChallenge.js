@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useCallback } from 'react'
 import emailjs from '@emailjs/browser'
 import { Play, CheckCircle, XCircle, Send, RotateCcw } from 'lucide-react'
 
@@ -53,6 +53,16 @@ export function PuzzleChallenge({ project, onClose }) {
   const [idea, setIdea] = useState('')
   const [submitState, setSubmitState] = useState('idle') // idle | sending | done | error
   const iframeRef = useRef(null)
+  const textareaRef = useRef(null)
+  const lineNumbersRef = useRef(null)
+
+  const lineCount = code.split('\n').length
+
+  const syncScroll = useCallback(() => {
+    if (textareaRef.current && lineNumbersRef.current) {
+      lineNumbersRef.current.scrollTop = textareaRef.current.scrollTop
+    }
+  }, [])
 
   function handleRun() {
     setParseError(null)
@@ -134,23 +144,39 @@ export function PuzzleChallenge({ project, onClose }) {
           </div>
 
           <div className="puzzle-editor-section">
-            <div className="puzzle-editor-toolbar">
-              <span className="puzzle-editor-label">
-                {puzzle.type === 'frontend' ? 'HTML / CSS' : 'JavaScript'}
-              </span>
-              <button className="button secondary small" onClick={handleReset}>
-                <RotateCcw size={12} /> Reset
-              </button>
+            <div className="code-editor-frame">
+              <div className="code-editor-titlebar">
+                <div className="code-editor-dots">
+                  <span />
+                  <span />
+                  <span />
+                </div>
+                <span className="code-editor-filename">
+                  {puzzle.type === 'frontend' ? 'solution.html' : 'solution.js'}
+                </span>
+                <button className="code-editor-reset" onClick={handleReset}>
+                  <RotateCcw size={11} /> Reset
+                </button>
+              </div>
+              <div className="code-editor-body">
+                <div className="code-editor-lines" ref={lineNumbersRef}>
+                  {Array.from({ length: lineCount }, (_, i) => (
+                    <span key={i}>{i + 1}</span>
+                  ))}
+                </div>
+                <textarea
+                  ref={textareaRef}
+                  className="puzzle-editor"
+                  value={code}
+                  onChange={(e) => setCode(e.target.value)}
+                  onScroll={syncScroll}
+                  spellCheck={false}
+                  autoComplete="off"
+                  autoCorrect="off"
+                  autoCapitalize="off"
+                />
+              </div>
             </div>
-            <textarea
-              className="puzzle-editor"
-              value={code}
-              onChange={(e) => setCode(e.target.value)}
-              spellCheck={false}
-              autoComplete="off"
-              autoCorrect="off"
-              autoCapitalize="off"
-            />
           </div>
 
           {puzzle.type === 'frontend' && (
