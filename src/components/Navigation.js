@@ -2,11 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 import { SocialIcon } from 'react-social-icons'
 
-import floppy from '../assets/floppylogo.png'
 import floppyLogo from '../assets/nav-floppy.png'
-import blog from '../assets/nav-blog.png'
-import projects from '../assets/nav-projects.png'
-import github from '../assets/nav-github.png'
+import { Terminal, FileText, Code2, CircleUser } from 'lucide-react'
 import { Moon } from './Icons/Moon'
 import { Sun } from './Icons/Sun'
 import { Menu } from './Icons/Menu'
@@ -15,10 +12,10 @@ import { Searchbar } from './Searchbar'
 import { ColorDropdown } from './ColorDropdown'
 
 const links = [
-  { url: '/blog', label: 'Blog', image: projects },
-  { url: '/notes', label: 'Notlar', image: blog },
-  { url: '/projects', label: 'Projeler', image: github },
-  { url: '/me', label: 'Hakkımda', image: floppy },
+  { url: '/blog', label: 'Blog', icon: Terminal },
+  { url: '/notes', label: 'Notlar', icon: FileText },
+  { url: '/projects', label: 'Projeler', icon: Code2 },
+  { url: '/me', label: 'Hakkımda', icon: CircleUser },
 ]
 
 const socialLinks = [
@@ -98,7 +95,7 @@ export const Navigation = ({
                 activeClassName="active"
                 onClick={handleCloseMobileNav}
               >
-                <img src={link.image} alt={link.label} />
+                <link.icon size={15} />
                 {link.label}
               </Link>
             ))}

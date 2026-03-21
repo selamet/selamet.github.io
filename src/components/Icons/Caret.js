@@ -1,18 +1,5 @@
 import React from 'react'
+import { ChevronDown, ChevronRight } from 'lucide-react'
 
-export const Caret = ({ position = 'down' }) => (
-  <svg
-    width="10"
-    height="5"
-    viewBox="-2.5 -5 75 60"
-    preserveAspectRatio="none"
-    style={position === 'right' ? { transform: 'rotate(-90deg)' } : {}}
-  >
-    <path
-      d="M0,0 l35,50 l35,-50"
-      fill="none"
-      strokeLinecap="round"
-      strokeWidth="5"
-    />
-  </svg>
-)
+export const Caret = ({ position = 'down' }) =>
+  position === 'right' ? <ChevronRight size={14} /> : <ChevronDown size={14} />
