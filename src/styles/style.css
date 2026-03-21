@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Lora:ital,wght@0,400..700;1,400..700&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap');
 
 :root {
   --gray-0: #fbfbfb;
@@ -82,11 +82,10 @@
   --color-text-button-secondary-hover: light-dark(var(--color-primary),
       var(--color-primary));
 
-  --font-family: -apple-system, BlinkMacSystemFont, Avenir, Helvetica, Arial,
+  --font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, Avenir, Helvetica, Arial,
     sans-serif;
-  --font-family-heading: -apple-system, BlinkMacSystemFont, 'DM Sans', Avenir,
-    Helvetica, Arial, sans-serif;
-  --font-family-monospace: Menlo, 'Google Sans Code', monospace;
+  --font-family-heading: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-family-monospace: 'Google Sans Code', Menlo, monospace;
 
   --border-radius: 6px;
   --box-shadow-card-dark: 0px 4px 7px rgba(0, 1, 2, 0.3),
@@ -105,7 +104,7 @@
   --content-width: 700px;
   --layout-padding-vertical: 1.5rem;
   --layout-padding-horizontal: 1.5rem;
-  --sidebar-width: 260px;
+  --sidebar-width: 280px;
   --post-sidebar-width: 260px;
   --main-layout-width: calc(var(--post-sidebar-width) + var(--content-width));
   --font-size: 1rem;
@@ -150,37 +149,6 @@
   box-sizing: border-box;
 }
 
-@keyframes cloud-float {
-
-  0%,
-  100% {
-    transform: translate(-50%, -50%) translateY(0);
-  }
-
-  50% {
-    transform: translate(-50%, -50%) translateY(-10px);
-  }
-}
-
-@keyframes blob-morph {
-
-  0%,
-  100% {
-    border-radius: 30% 70% 20% 80% / 70% 20% 80% 30%;
-  }
-
-  25% {
-    border-radius: 80% 20% 70% 30% / 30% 70% 20% 80%;
-  }
-
-  50% {
-    border-radius: 20% 80% 30% 70% / 80% 30% 70% 20%;
-  }
-
-  75% {
-    border-radius: 70% 30% 80% 20% / 20% 80% 30% 70%;
-  }
-}
 
 html {
   scroll-behavior: smooth;
@@ -688,7 +656,7 @@ a.navbar-icon {
 
   .site-name {
     color: var(--color-text-emphasized);
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 600;
     white-space: nowrap;
   }
