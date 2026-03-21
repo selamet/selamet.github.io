@@ -104,7 +104,7 @@
   --content-width: 700px;
   --layout-padding-vertical: 1.5rem;
   --layout-padding-horizontal: 1.5rem;
-  --sidebar-width: 280px;
+  --sidebar-width: 300px;
   --post-sidebar-width: 260px;
   --main-layout-width: calc(var(--post-sidebar-width) + var(--content-width));
   --font-size: 1rem;

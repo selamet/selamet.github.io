@@ -41,10 +41,12 @@ export const Sidebar = ({
             <span className="site-name">Selamet's Diary</span>
           </Link>
           <div className="flex-align-center">
-            <button className="navbar-button lang-toggle" onClick={toggleLang} title={lang === 'tr' ? 'Switch to English' : 'Türkçeye geç'}>
-              <Globe size={14} />
-              <span>{lang.toUpperCase()}</span>
-            </button>
+            <div className="tooltip-container">
+              <button className="navbar-button" onClick={toggleLang}>
+                <Globe size={16} />
+              </button>
+              <div className="tooltip">{lang === 'tr' ? 'EN' : 'TR'}</div>
+            </div>
             <ColorDropdown
               currentColor={currentColor}
               setCurrentColor={setCurrentColor}
