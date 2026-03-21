@@ -10,13 +10,7 @@ import { Menu } from './Icons/Menu'
 import { Close } from './Icons/Close'
 import { Searchbar } from './Searchbar'
 import { ColorDropdown } from './ColorDropdown'
-
-const links = [
-  { url: '/blog', label: 'Blog', icon: Terminal },
-  { url: '/notes', label: 'Notlar', icon: FileText },
-  { url: '/projects', label: 'Projeler', icon: Code2 },
-  { url: '/me', label: 'Hakkımda', icon: CircleUser },
-]
+import { useLanguage } from '../context/LanguageContext'
 
 const socialLinks = [
   { url: 'https://github.com/selamet' },
@@ -29,9 +23,17 @@ export const Navigation = ({
   currentColor,
   setCurrentColor,
 }) => {
+  const { lang, toggleLang, t } = useLanguage()
   const [currentPath, setCurrentPath] = useState('')
   const [navOpen, setNavOpen] = useState(false)
   const [query, setQuery] = useState('')
+
+  const links = [
+    { url: '/blog', label: t('nav.blog'), icon: Terminal },
+    { url: '/notes', label: t('nav.notes'), icon: FileText },
+    { url: '/projects', label: t('nav.projects'), icon: Code2 },
+    { url: '/me', label: t('nav.about'), icon: CircleUser },
+  ]
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -101,11 +103,13 @@ export const Navigation = ({
             ))}
           </nav>
           <nav className="navbar-menu social">
+            <button className="navbar-button" onClick={toggleLang}>
+              {lang === 'tr' ? 'EN' : 'TR'}
+            </button>
             <button
               className="navbar-button"
               onClick={() => {
                 const newTheme = theme === 'dark' ? 'light' : 'dark'
-
                 handleUpdateTheme(newTheme)
               }}
             >

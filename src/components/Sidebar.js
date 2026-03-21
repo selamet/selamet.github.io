@@ -6,6 +6,7 @@ import floppyLogo from '../assets/nav-floppy.png'
 import { Terminal, FileText, Code2, CircleUser } from 'lucide-react'
 import { Moon } from './Icons/Moon'
 import { Sun } from './Icons/Sun'
+import { useLanguage } from '../context/LanguageContext'
 
 export const Sidebar = ({
   theme,
@@ -13,11 +14,13 @@ export const Sidebar = ({
   currentColor,
   setCurrentColor,
 }) => {
+  const { lang, toggleLang, t } = useLanguage()
+
   const links = [
-    { url: '/blog', label: 'Blog', icon: Terminal },
-    { url: '/notes', label: 'Notlar', icon: FileText },
-    { url: '/projects', label: 'Projeler', icon: Code2 },
-    { url: '/me', label: 'Hakkımda', icon: CircleUser },
+    { url: '/blog', label: t('nav.blog'), icon: Terminal },
+    { url: '/notes', label: t('nav.notes'), icon: FileText },
+    { url: '/projects', label: t('nav.projects'), icon: Code2 },
+    { url: '/me', label: t('nav.about'), icon: CircleUser },
   ]
 
   return (
@@ -38,6 +41,9 @@ export const Sidebar = ({
             <span className="site-name">Selamet's Diary</span>
           </Link>
           <div className="flex-align-center">
+            <button className="navbar-button" onClick={toggleLang}>
+              {lang === 'tr' ? 'EN' : 'TR'}
+            </button>
             <ColorDropdown
               currentColor={currentColor}
               setCurrentColor={setCurrentColor}
@@ -47,7 +53,6 @@ export const Sidebar = ({
                 className="navbar-button"
                 onClick={() => {
                   const newTheme = theme === 'dark' ? 'light' : 'dark'
-
                   handleUpdateTheme(newTheme)
                 }}
               >
@@ -60,11 +65,9 @@ export const Sidebar = ({
       </section>
 
       <section className="sidebar-section">
-        <h2>Hakkımda</h2>
+        <h2>{t('sidebar.about')}</h2>
         <div className="sidebar-content">
-          <p>
-            Ben <Link to="/me">Selamet</Link>, yazılım geliştircisiyim ve neon üretircisiyim. Burada bir takım teknik yazılar paylaşıyor olacağım 🌱
-          </p>
+          <p>{t('sidebar.bio')}</p>
         </div>
       </section>
 
@@ -80,7 +83,7 @@ export const Sidebar = ({
       </section>
 
       <section className="sidebar-section">
-        <h2>İletişim</h2>
+        <h2>{t('sidebar.contact')}</h2>
         <p className="sidebar-links">
           <a
             href="https://github.com/selamet"
