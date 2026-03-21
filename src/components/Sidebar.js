@@ -3,10 +3,7 @@ import { Link } from 'gatsby'
 
 import { ColorDropdown } from './ColorDropdown'
 import floppyLogo from '../assets/nav-floppy.png'
-import floppy from '../assets/floppylogo.png'
-import blog from '../assets/nav-blog.png'
-import projects from '../assets/nav-projects.png'
-import github from '../assets/nav-github.png'
+import { Terminal, FileText, Code2, CircleUser } from 'lucide-react'
 import { Moon } from './Icons/Moon'
 import { Sun } from './Icons/Sun'
 
@@ -17,10 +14,10 @@ export const Sidebar = ({
   setCurrentColor,
 }) => {
   const links = [
-    { url: '/blog', label: 'Blog', image: projects },
-    { url: '/notes', label: 'Notlar', image: blog },
-    { url: '/projects', label: 'Projeler', image: github },
-    { url: '/me', label: 'Hakkımda', image: floppy },
+    { url: '/blog', label: 'Blog', icon: Terminal },
+    { url: '/notes', label: 'Notlar', icon: FileText },
+    { url: '/projects', label: 'Projeler', icon: Code2 },
+    { url: '/me', label: 'Hakkımda', icon: CircleUser },
   ]
 
   return (
@@ -75,7 +72,7 @@ export const Sidebar = ({
         <nav className="sidebar-nav-links">
           {links.map((link) => (
             <Link key={link.url} to={link.url} activeClassName="active">
-              <img src={link.image} alt={link.label} />
+              <link.icon size={15} />
               {link.label}
             </Link>
           ))}
