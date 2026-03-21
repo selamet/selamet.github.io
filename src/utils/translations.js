@@ -4,6 +4,7 @@ const translations = {
       blog: 'Blog',
       notes: 'Notlar',
       projects: 'Projeler',
+      collaborate: 'Birlikte Geliştir',
       about: 'Hakkımda',
     },
     sidebar: {
@@ -94,6 +95,7 @@ const translations = {
       blog: 'Blog',
       notes: 'Notes',
       projects: 'Projects',
+      collaborate: 'Collaborate',
       about: 'About',
     },
     sidebar: {

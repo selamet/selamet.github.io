@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 
 import { ColorDropdown } from './ColorDropdown'
 import floppyLogo from '../assets/nav-floppy.png'
-import { Terminal, FileText, Code2, CircleUser, Globe } from 'lucide-react'
+import { Terminal, FileText, Code2, CircleUser, Globe, GitBranch } from 'lucide-react'
 import { Moon } from './Icons/Moon'
 import { Sun } from './Icons/Sun'
 import { useLanguage } from '../context/LanguageContext'
@@ -20,6 +20,7 @@ export const Sidebar = ({
     { url: '/blog', label: t('nav.blog'), icon: Terminal },
     { url: '/notes', label: t('nav.notes'), icon: FileText },
     { url: '/projects', label: t('nav.projects'), icon: Code2 },
+    { url: '/collaborate', label: t('nav.collaborate'), icon: GitBranch },
     { url: '/me', label: t('nav.about'), icon: CircleUser },
   ]
 
