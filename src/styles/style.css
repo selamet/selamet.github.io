@@ -2351,32 +2351,22 @@ a time.new-post {
   }
 }
 
-/* Tail — curved using border trick, inside .cat-body */
-.cat-tail {
+/* Belly icon */
+.cat-belly-icon {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 28px;
   height: 28px;
-  border: 8px solid var(--color-text-emphasized);
+  background: var(--color-background-card);
   border-radius: 50%;
-  border-top-color: transparent;
-  border-left-color: transparent;
-  bottom: -10px;
-  right: -20px;
-  transform: rotate(-30deg);
-}
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
 
-.css-cat--sleepy .cat-tail {
-  transform: rotate(15deg);
-  right: -18px;
-  bottom: -8px;
-}
-
-.css-cat--curious .cat-tail {
-  width: 22px;
-  height: 22px;
-  transform: rotate(-80deg);
-  bottom: 2px;
-  right: -18px;
+  svg { display: block; }
 }
 
 .mentorship-modal {
