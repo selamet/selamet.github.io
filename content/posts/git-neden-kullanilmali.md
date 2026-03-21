@@ -2,6 +2,8 @@
 title: Git Neden Kullanılmalı ve Bu Nedir?
 date: 2025-01-15
 template: post
+lang: tr
+translationSlug: why-use-git
 categories:
   - Technical
 tags:
