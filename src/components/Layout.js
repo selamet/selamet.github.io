@@ -11,7 +11,7 @@ import '../styles/style.css'
 import '../styles/new-moon.css'
 
 export const Layout = ({ children }) => {
-  const [theme, setTheme] = useState('dark')
+  const [theme, setTheme] = useState('light')
   const [currentColor, setCurrentColor] = useState('var(--theme-pink)')
 
   const handleUpdateTheme = (newTheme) => {
@@ -39,20 +39,11 @@ export const Layout = ({ children }) => {
     const html = document.documentElement
     const savedTheme = window.localStorage.getItem('theme')
 
-    if (savedTheme) {
-      setTheme(savedTheme)
-      document.documentElement.style.setProperty('color-scheme', savedTheme)
-
-      if (savedTheme === 'light') {
-        html.classList.add('is-light')
-        html.classList.remove('is-dark')
-      }
-
-      if (savedTheme === 'dark') {
-        html.classList.add('is-dark')
-        html.classList.remove('is-light')
-      }
-    }
+    const active = savedTheme || 'light'
+    setTheme(active)
+    document.documentElement.style.setProperty('color-scheme', active)
+    html.classList.add(active === 'dark' ? 'is-dark' : 'is-light')
+    html.classList.remove(active === 'dark' ? 'is-light' : 'is-dark')
   }, [])
 
   return (
