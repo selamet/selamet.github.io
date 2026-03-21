@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 
 import { ColorDropdown } from './ColorDropdown'
 import floppyLogo from '../assets/nav-floppy.png'
-import { Terminal, FileText, Code2, CircleUser } from 'lucide-react'
+import { Terminal, FileText, Code2, CircleUser, Globe } from 'lucide-react'
 import { Moon } from './Icons/Moon'
 import { Sun } from './Icons/Sun'
 import { useLanguage } from '../context/LanguageContext'
@@ -41,8 +41,9 @@ export const Sidebar = ({
             <span className="site-name">Selamet's Diary</span>
           </Link>
           <div className="flex-align-center">
-            <button className="navbar-button" onClick={toggleLang} title={lang === 'tr' ? 'Switch to English' : 'Türkçeye geç'}>
-              {lang === 'tr' ? '🇬🇧' : '🇹🇷'}
+            <button className="navbar-button lang-toggle" onClick={toggleLang} title={lang === 'tr' ? 'Switch to English' : 'Türkçeye geç'}>
+              <Globe size={14} />
+              <span>{lang.toUpperCase()}</span>
             </button>
             <ColorDropdown
               currentColor={currentColor}

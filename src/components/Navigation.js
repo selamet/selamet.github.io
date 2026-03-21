@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import { SocialIcon } from 'react-social-icons'
 
 import floppyLogo from '../assets/nav-floppy.png'
-import { Terminal, FileText, Code2, CircleUser } from 'lucide-react'
+import { Terminal, FileText, Code2, CircleUser, Globe } from 'lucide-react'
 import { Moon } from './Icons/Moon'
 import { Sun } from './Icons/Sun'
 import { Menu } from './Icons/Menu'
@@ -103,8 +103,9 @@ export const Navigation = ({
             ))}
           </nav>
           <nav className="navbar-menu social">
-            <button className="navbar-button" onClick={toggleLang} title={lang === 'tr' ? 'Switch to English' : 'Türkçeye geç'}>
-              {lang === 'tr' ? '🇬🇧' : '🇹🇷'}
+            <button className="navbar-button lang-toggle" onClick={toggleLang} title={lang === 'tr' ? 'Switch to English' : 'Türkçeye geç'}>
+              <Globe size={14} />
+              <span>{lang.toUpperCase()}</span>
             </button>
             <button
               className="navbar-button"
