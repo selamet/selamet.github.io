@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Helmet from 'react-helmet'
-import { Code2, Palette } from 'lucide-react'
+import { Code2, Layers } from 'lucide-react'
 
 import { Layout } from '../components/Layout'
 import { SEO } from '../components/SEO'
@@ -18,51 +18,100 @@ const challenges = [
     icon: Code2,
     title: { tr: 'Backend Challenge', en: 'Backend Challenge' },
     desc: {
-      tr: 'Algoritma ve veri yapısı. Kodunu çalıştır, testleri geç.',
-      en: 'Algorithm & data structures. Write your solution and pass the tests.',
+      tr: 'Bir sınıfın eksik metodlarını tamamla.',
+      en: 'Complete the missing methods of a class.',
     },
     puzzle: {
       type: 'backend',
-      title: 'Weighted Random Selection',
-      description: `Given an array of participants with ticket counts, return one winner's name at random — each ticket has an equal chance of being drawn.
+      title: 'Complete the EventEmitter Class',
+      description: `Implement a simple EventEmitter class with the following methods:
 
-Example: Alice has 3 tickets, Bob has 1. Alice should win ~75% of the time.`,
-      starterCode: `function pickWinner(participants) {
-  // participants: [{ name: 'Alice', tickets: 3 }, { name: 'Bob', tickets: 1 }]
-  // Return the winner's name
+- \`on(event, listener)\` — register a listener for an event
+- \`off(event, listener)\` — remove a specific listener
+- \`emit(event, ...args)\` — call all listeners for an event with given args
+- \`once(event, listener)\` — listener fires only once, then auto-removes`,
+      starterCode: `class EventEmitter {
+  constructor() {
+    this._events = {}
+  }
+
+  on(event, listener) {
+    // Register listener for event
+  }
+
+  off(event, listener) {
+    // Remove a specific listener
+  }
+
+  emit(event, ...args) {
+    // Call all listeners for event with args
+  }
+
+  once(event, listener) {
+    // Fires only once, then removes itself
+  }
 }`,
       testCases: [
         {
-          description: 'Returns a string',
-          run: (fn) => {
-            const result = fn([{ name: 'Alice', tickets: 3 }, { name: 'Bob', tickets: 1 }])
-            if (typeof result !== 'string') throw new Error(`Expected string, got ${typeof result}`)
+          description: 'on() + emit() — listener is called',
+          run: (Cls) => {
+            const ee = new Cls()
+            let called = false
+            ee.on('ping', () => { called = true })
+            ee.emit('ping')
+            if (!called) throw new Error('Listener was not called after emit')
           },
         },
         {
-          description: 'Winner must be one of the participants',
-          run: (fn) => {
-            const participants = [{ name: 'Alice', tickets: 1 }, { name: 'Bob', tickets: 1 }]
-            const result = fn(participants)
-            if (!['Alice', 'Bob'].includes(result)) throw new Error(`Unknown winner: "${result}"`)
+          description: 'emit() passes arguments to listener',
+          run: (Cls) => {
+            const ee = new Cls()
+            let received
+            ee.on('data', (val) => { received = val })
+            ee.emit('data', 42)
+            if (received !== 42) throw new Error(`Expected 42, got ${received}`)
           },
         },
         {
-          description: 'Works with a single participant',
-          run: (fn) => {
-            const result = fn([{ name: 'Solo', tickets: 5 }])
-            if (result !== 'Solo') throw new Error(`Expected "Solo", got "${result}"`)
+          description: 'off() removes a specific listener',
+          run: (Cls) => {
+            const ee = new Cls()
+            let count = 0
+            const inc = () => { count++ }
+            ee.on('tick', inc)
+            ee.emit('tick')
+            ee.off('tick', inc)
+            ee.emit('tick')
+            if (count !== 1) throw new Error(`Expected 1 call after off(), got ${count}`)
           },
         },
         {
-          description: 'Ticket weights are respected (statistical)',
-          run: (fn) => {
-            const counts = {}
-            for (let i = 0; i < 1000; i++) {
-              const w = fn([{ name: 'Alice', tickets: 9 }, { name: 'Bob', tickets: 1 }])
-              counts[w] = (counts[w] || 0) + 1
-            }
-            if ((counts.Alice || 0) < 700) throw new Error(`Alice should win ~90% — got ${counts.Alice || 0}/1000`)
+          description: 'Multiple listeners on same event all fire',
+          run: (Cls) => {
+            const ee = new Cls()
+            let sum = 0
+            ee.on('add', () => { sum += 1 })
+            ee.on('add', () => { sum += 2 })
+            ee.emit('add')
+            if (sum !== 3) throw new Error(`Expected sum 3, got ${sum}`)
+          },
+        },
+        {
+          description: 'once() fires exactly once',
+          run: (Cls) => {
+            const ee = new Cls()
+            let count = 0
+            ee.once('ping', () => { count++ })
+            ee.emit('ping')
+            ee.emit('ping')
+            if (count !== 1) throw new Error(`Expected 1 call, got ${count}`)
+          },
+        },
+        {
+          description: 'emit() on unknown event does not throw',
+          run: (Cls) => {
+            const ee = new Cls()
+            ee.emit('nonexistent')
           },
         },
       ],
@@ -70,33 +119,98 @@ Example: Alice has 3 tickets, Bob has 1. Alice should win ~75% of the time.`,
   },
   {
     id: 'frontend',
-    type: 'frontend',
+    type: 'backend',
     accent: '#5b8abf',
-    icon: Palette,
-    title: { tr: 'Frontend Challenge', en: 'Frontend Challenge' },
+    icon: Layers,
+    title: { tr: 'Frontend / Redux Challenge', en: 'Frontend / Redux Challenge' },
     desc: {
-      tr: 'HTML ve CSS. Önizlemeni göster, sonra gönder.',
-      en: 'HTML & CSS. Build it, preview it, then send.',
+      tr: 'Reducer ve action\'ları yapılandır, store\'u çalıştır.',
+      en: 'Configure the reducer and actions, make the store work.',
     },
     puzzle: {
-      type: 'frontend',
-      title: 'CSS Toggle Switch',
-      description: `Build a CSS-only toggle switch — no JavaScript allowed.
+      type: 'backend',
+      title: 'Configure a Redux-style Store',
+      description: `A minimal \`createStore(reducer)\` is already provided — you don't need to import anything.
 
-Requirements:
-- Smooth slide animation when toggled
-- Changes background color when checked
-- Works using only HTML + CSS (the checkbox trick)`,
-      starterCode: `<style>
-  body { display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; background: #f5f5f5; }
+Complete the \`todosReducer\` and \`initialState\` to handle these actions:
+- \`ADD_TODO\` — payload: \`{ id, text }\`, adds to todos array
+- \`TOGGLE_TODO\` — payload: \`id\`, flips the \`done\` field
+- \`SET_FILTER\` — payload: \`'all' | 'active' | 'completed'\`, sets filter`,
+      starterCode: `// createStore is provided — do not redefine it
+// Usage: const store = createStore(reducer)
+// store.getState() → current state
+// store.dispatch({ type, payload }) → triggers reducer
 
-  /* your styles here */
-</style>
+const initialState = {
+  // YOUR CODE HERE
+}
 
-<label class="toggle">
-  <input type="checkbox" />
-  <span class="slider"></span>
-</label>`,
+function todosReducer(state = initialState, action) {
+  switch (action.type) {
+    case 'ADD_TODO':
+      // YOUR CODE HERE
+
+    case 'TOGGLE_TODO':
+      // YOUR CODE HERE
+
+    case 'SET_FILTER':
+      // YOUR CODE HERE
+
+    default:
+      return state
+  }
+}`,
+      testCases: [
+        {
+          description: 'Initial state has todos array and filter field',
+          run: (fn, createStore) => {
+            const store = createStore(fn)
+            const state = store.getState()
+            if (!Array.isArray(state.todos)) throw new Error('state.todos should be an array')
+            if (!('filter' in state)) throw new Error('state.filter is missing')
+          },
+        },
+        {
+          description: 'ADD_TODO adds a todo to the list',
+          run: (fn, createStore) => {
+            const store = createStore(fn)
+            store.dispatch({ type: 'ADD_TODO', payload: { id: 1, text: 'Buy milk' } })
+            const todos = store.getState().todos
+            if (todos.length !== 1) throw new Error(`Expected 1 todo, got ${todos.length}`)
+            if (todos[0].text !== 'Buy milk') throw new Error(`Expected "Buy milk", got "${todos[0].text}"`)
+          },
+        },
+        {
+          description: 'TOGGLE_TODO flips the done field',
+          run: (fn, createStore) => {
+            const store = createStore(fn)
+            store.dispatch({ type: 'ADD_TODO', payload: { id: 1, text: 'Test' } })
+            store.dispatch({ type: 'TOGGLE_TODO', payload: 1 })
+            const todo = store.getState().todos[0]
+            if (!todo.done) throw new Error('Expected done to be true after toggle')
+            store.dispatch({ type: 'TOGGLE_TODO', payload: 1 })
+            if (store.getState().todos[0].done) throw new Error('Expected done to be false after second toggle')
+          },
+        },
+        {
+          description: 'SET_FILTER updates the filter field',
+          run: (fn, createStore) => {
+            const store = createStore(fn)
+            store.dispatch({ type: 'SET_FILTER', payload: 'active' })
+            if (store.getState().filter !== 'active') throw new Error(`Expected filter "active", got "${store.getState().filter}"`)
+          },
+        },
+        {
+          description: 'Reducer is pure — original state is not mutated',
+          run: (fn, createStore) => {
+            const store = createStore(fn)
+            store.dispatch({ type: 'ADD_TODO', payload: { id: 1, text: 'A' } })
+            const before = store.getState().todos
+            store.dispatch({ type: 'ADD_TODO', payload: { id: 2, text: 'B' } })
+            if (store.getState().todos === before) throw new Error('Reducer mutated state instead of returning new array')
+          },
+        },
+      ],
     },
   },
 ]
