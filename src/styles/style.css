@@ -1665,25 +1665,23 @@ a time.new-post {
 
   .collaborate-card-top {
     padding: 1.1rem 1.1rem 0.75rem;
+    display: flex;
+    flex-direction: column;
   }
 
   .collaborate-card-badge {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     gap: 5px;
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     font-family: var(--font-family-code);
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: var(--project-accent, var(--color-primary));
-    margin-bottom: 0.5rem;
-  }
-
-  .collaborate-card-name {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--color-text-emphasized);
-    margin: 0 0 0.35rem;
+    margin-bottom: 0.6rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .collaborate-card-tagline {
@@ -1691,6 +1689,7 @@ a time.new-post {
     color: var(--color-text);
     line-height: 1.5;
     margin: 0;
+    flex: 1;
   }
 
   .collaborate-card-puzzle {
