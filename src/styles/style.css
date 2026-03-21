@@ -2119,7 +2119,7 @@ a time.new-post {
   border: 1px solid var(--color-border-card);
   background: var(--color-background-card);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 
   &::before {
     content: '';
@@ -2135,9 +2135,10 @@ a time.new-post {
 
 .mentorship-cats {
   display: flex;
-  gap: 0.75rem;
+  gap: 1.25rem;
   align-items: flex-end;
   flex-shrink: 0;
+  padding: 0 12px 8px 4px;
 }
 
 .mentorship-content {
@@ -2350,27 +2351,30 @@ a time.new-post {
   }
 }
 
-/* Tail — curved using border trick */
+/* Tail — curved using border trick, inside .cat-body */
 .cat-tail {
   position: absolute;
-  width: 32px;
-  height: 32px;
-  border: 9px solid var(--color-text-emphasized);
+  width: 28px;
+  height: 28px;
+  border: 8px solid var(--color-text-emphasized);
   border-radius: 50%;
   border-top-color: transparent;
   border-left-color: transparent;
-  bottom: -4px;
-  right: -16px;
-  transform: rotate(-20deg);
+  bottom: -10px;
+  right: -20px;
+  transform: rotate(-30deg);
 }
 
 .css-cat--sleepy .cat-tail {
-  transform: rotate(10deg);
-  right: -12px;
+  transform: rotate(15deg);
+  right: -18px;
+  bottom: -8px;
 }
 
 .css-cat--curious .cat-tail {
-  transform: rotate(-50deg);
+  width: 22px;
+  height: 22px;
+  transform: rotate(-80deg);
   bottom: 2px;
   right: -18px;
 }

@@ -33,12 +33,12 @@ function CssCat({ mood = 'happy' }) {
         </div>
       </div>
       <div className="cat-body">
+        <div className="cat-tail" />
         <div className="cat-paws">
           <div className="cat-paw cat-paw--left" />
           <div className="cat-paw cat-paw--right" />
         </div>
       </div>
-      <div className="cat-tail" />
     </div>
   )
 }
