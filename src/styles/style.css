@@ -2180,41 +2180,53 @@ a time.new-post {
 
 .css-cat {
   position: relative;
-  width: 56px;
+  width: 64px;
   flex-shrink: 0;
+  animation: cat-breathe 3s ease-in-out infinite;
+
+  &:nth-child(2) { animation-delay: 0.8s; animation-duration: 4s; }
+  &:nth-child(3) { animation-delay: 1.5s; animation-duration: 2.5s; }
 }
 
+@keyframes cat-breathe {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Ears */
 .cat-ear {
   position: absolute;
   width: 0;
   height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 18px solid var(--color-text-emphasized);
-  top: -10px;
+  border-left: 11px solid transparent;
+  border-right: 11px solid transparent;
+  border-bottom: 20px solid var(--color-text-emphasized);
+  z-index: 1;
 
   &::after {
     content: '';
     position: absolute;
     width: 0;
     height: 0;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-bottom: 12px solid var(--color-primary);
-    top: 4px;
-    left: -6px;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 13px solid color-mix(in srgb, var(--color-primary) 60%, #ffaaaa);
+    top: 5px;
+    left: -7px;
   }
 }
 
-.cat-ear--left { left: 4px; }
-.cat-ear--right { right: 4px; }
+.cat-ear--left { left: 5px; top: -12px; }
+.cat-ear--right { right: 5px; top: -12px; }
 
+/* Head */
 .cat-head {
-  width: 56px;
-  height: 50px;
+  width: 58px;
+  height: 52px;
   background: var(--color-text-emphasized);
-  border-radius: 50% 50% 45% 45%;
+  border-radius: 50% 50% 46% 46%;
   position: relative;
+  margin: 0 auto;
 }
 
 .cat-face {
@@ -2223,68 +2235,66 @@ a time.new-post {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 2px;
+  padding-top: 14px;
+  gap: 3px;
 }
 
+/* Eyes */
 .cat-eyes {
   display: flex;
   gap: 10px;
-  margin-top: 4px;
 }
 
 .cat-eye {
-  width: 11px;
-  height: 11px;
+  width: 12px;
+  height: 12px;
   background: var(--color-background-card);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .css-cat--sleepy .cat-eye {
-  height: 5px;
-  border-radius: 50% 50% 0 0;
+  height: 6px;
+  border-radius: 6px 6px 0 0;
   align-items: flex-start;
 }
 
 .css-cat--curious .cat-eye--left {
-  width: 13px;
-  height: 13px;
+  width: 14px;
+  height: 14px;
 }
 
 .cat-pupil {
-  width: 5px;
-  height: 7px;
+  width: 6px;
+  height: 8px;
   background: var(--color-text-emphasized);
   border-radius: 50%;
 }
 
 .css-cat--sleepy .cat-pupil { display: none; }
 
+/* Nose */
 .cat-nose {
-  width: 6px;
-  height: 4px;
-  background: color-mix(in srgb, var(--color-primary) 70%, #ff8888);
-  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-  margin-top: 2px;
-}
-
-.cat-mouth {
-  width: 14px;
+  width: 7px;
   height: 5px;
+  background: color-mix(in srgb, var(--color-primary) 60%, #ff9999);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+}
+
+/* Mouth */
+.cat-mouth {
+  width: 16px;
+  height: 6px;
   border-bottom: 2px solid var(--color-background-card);
-  border-left: 2px solid transparent;
-  border-right: 2px solid transparent;
+  border-left: 1.5px solid transparent;
+  border-right: 1.5px solid transparent;
   border-radius: 0 0 50% 50%;
-  margin-top: 1px;
 }
 
-.css-cat--sleepy .cat-mouth {
-  width: 10px;
-}
-
+/* Whiskers */
 .cat-whiskers {
   position: absolute;
   inset: 0;
@@ -2294,78 +2304,75 @@ a time.new-post {
 .cat-whisker {
   position: absolute;
   height: 1.5px;
-  background: var(--color-background-card);
+  background: color-mix(in srgb, var(--color-background-card) 80%, transparent);
   border-radius: 2px;
-  opacity: 0.7;
 }
 
-.cat-whisker--l1 { width: 18px; top: 58%; left: 0; transform: rotate(-8deg); }
-.cat-whisker--l2 { width: 16px; top: 65%; left: 2px; transform: rotate(5deg); }
-.cat-whisker--r1 { width: 18px; top: 58%; right: 0; transform: rotate(8deg); }
-.cat-whisker--r2 { width: 16px; top: 65%; right: 2px; transform: rotate(-5deg); }
+.cat-whisker--l1 { width: 20px; top: 60%; left: -2px; transform: rotate(-10deg); transform-origin: right; }
+.cat-whisker--l2 { width: 18px; top: 67%; left: 0; transform: rotate(6deg); transform-origin: right; }
+.cat-whisker--r1 { width: 20px; top: 60%; right: -2px; transform: rotate(10deg); transform-origin: left; }
+.cat-whisker--r2 { width: 18px; top: 67%; right: 0; transform: rotate(-6deg); transform-origin: left; }
 
+/* Body */
 .cat-body {
-  width: 48px;
-  height: 32px;
+  width: 50px;
+  height: 36px;
   background: var(--color-text-emphasized);
-  border-radius: 30% 30% 40% 40%;
-  margin: 0 auto;
+  border-radius: 40% 40% 50% 50%;
+  margin: -2px auto 0;
   position: relative;
 }
 
+/* Paws */
 .cat-paws {
   display: flex;
   justify-content: space-around;
   position: absolute;
-  bottom: -6px;
-  left: 4px;
-  right: 4px;
+  bottom: -7px;
+  left: 3px;
+  right: 3px;
 }
 
 .cat-paw {
-  width: 14px;
-  height: 10px;
+  width: 16px;
+  height: 11px;
   background: var(--color-text-emphasized);
-  border-radius: 50% 50% 40% 40%;
+  border-radius: 50% 50% 45% 45%;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+    border-top: 2px solid color-mix(in srgb, var(--color-background-card) 30%, transparent);
+    border-radius: 50%;
+    margin-top: 3px;
+  }
 }
 
+/* Tail — curved using border trick */
 .cat-tail {
   position: absolute;
-  width: 10px;
-  height: 28px;
-  background: var(--color-text-emphasized);
-  border-radius: 10px 10px 0 10px;
-  bottom: 0;
-  right: -8px;
-  transform: rotate(20deg);
-  transform-origin: bottom center;
+  width: 32px;
+  height: 32px;
+  border: 9px solid var(--color-text-emphasized);
+  border-radius: 50%;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  bottom: -4px;
+  right: -16px;
+  transform: rotate(-20deg);
 }
 
 .css-cat--sleepy .cat-tail {
-  transform: rotate(-10deg);
+  transform: rotate(10deg);
+  right: -12px;
 }
 
 .css-cat--curious .cat-tail {
-  transform: rotate(40deg);
-}
-
-.css-cat {
-  animation: cat-breathe 3s ease-in-out infinite;
-}
-
-.css-cat:nth-child(2) {
-  animation-delay: 0.8s;
-  animation-duration: 4s;
-}
-
-.css-cat:nth-child(3) {
-  animation-delay: 1.5s;
-  animation-duration: 2.5s;
-}
-
-@keyframes cat-breathe {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+  transform: rotate(-50deg);
+  bottom: 2px;
+  right: -18px;
 }
 
 .mentorship-modal {
