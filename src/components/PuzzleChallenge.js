@@ -6,19 +6,35 @@ const EMAILJS_SERVICE_ID = process.env.GATSBY_EMAILJS_SERVICE_ID
 const EMAILJS_TEMPLATE_ID = process.env.GATSBY_EMAILJS_TEMPLATE_ID
 const EMAILJS_PUBLIC_KEY = process.env.GATSBY_EMAILJS_PUBLIC_KEY
 
+function createStore(reducer) {
+  let state = reducer(undefined, { type: '@@INIT' })
+  return {
+    getState: () => state,
+    dispatch: (action) => { state = reducer(state, action) },
+  }
+}
+
 function runBackendTests(code, testCases) {
+  // Try as a class first, then as a function
   let fn
+  let isClass = false
   try {
     // eslint-disable-next-line no-new-func
-    fn = new Function(`return (${code})`)()
-    if (typeof fn !== 'function') throw new Error('Your code must be a function expression or function declaration')
+    const result = new Function('createStore', `${code};\nif (typeof EventEmitter !== 'undefined') return EventEmitter;\nif (typeof todosReducer !== 'undefined') return todosReducer;\nreturn undefined;`)(createStore)
+    if (result === undefined) throw new Error('Could not find a class or function to test. Make sure your class/function name matches.')
+    fn = result
+    isClass = typeof fn === 'function' && /^class\s/.test(fn.toString())
   } catch (e) {
     return { parseError: e.message }
   }
 
   return testCases.map((tc) => {
     try {
-      tc.run(fn)
+      if (isClass) {
+        tc.run(fn)
+      } else {
+        tc.run(fn, createStore)
+      }
       return { description: tc.description, passed: true }
     } catch (e) {
       return { description: tc.description, passed: false, error: e.message }
