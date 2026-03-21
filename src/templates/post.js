@@ -13,7 +13,7 @@ import { slugify } from '../utils/helpers'
 
 export default function PostTemplate({ data }) {
   const post = data.markdownRemark
-  const { title, date, tags } = post.frontmatter
+  const { title, date, tags, lang, translationSlug } = post.frontmatter
 
   return (
     <>
@@ -45,6 +45,14 @@ export default function PostTemplate({ data }) {
                 </Link>
               )
             })}
+            {translationSlug && (
+              <Link
+                to={`/${translationSlug}/`}
+                className="button secondary small translation-link"
+              >
+                🌐 {lang === 'tr' ? 'Read in English' : 'Türkçe oku'}
+              </Link>
+            )}
           </div>
         </Hero>
 
@@ -80,6 +88,8 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         tags
         categories
+        lang
+        translationSlug
       }
     }
   }

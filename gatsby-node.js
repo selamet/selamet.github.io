@@ -21,6 +21,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       slug: String
       comments_off: Boolean
       thumbnail: File @fileByRelativePath
+      lang: String
+      translationSlug: String
     }
 
     type MarkdownRemarkFields {
