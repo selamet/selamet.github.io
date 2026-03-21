@@ -2184,6 +2184,15 @@ a time.new-post {
   50% { transform: translateY(-6px); }
 }
 
+@keyframes qfloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-5px); }
+}
+
+.cat-q1 { animation: qfloat 2.4s ease-in-out 0s   infinite; }
+.cat-q2 { animation: qfloat 2.4s ease-in-out 0.5s infinite; }
+.cat-q3 { animation: qfloat 2.4s ease-in-out 1s   infinite; }
+
 .mentorship-modal {
   max-width: 480px;
 }

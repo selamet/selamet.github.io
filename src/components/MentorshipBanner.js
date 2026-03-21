@@ -7,113 +7,128 @@ const EMAILJS_SERVICE_ID = process.env.GATSBY_EMAILJS_SERVICE_ID
 const EMAILJS_TEMPLATE_ID = process.env.GATSBY_EMAILJS_TEMPLATE_ID
 const EMAILJS_PUBLIC_KEY = process.env.GATSBY_EMAILJS_PUBLIC_KEY
 
-const BODY = '#2d2d2d'
-const EAR_INNER = '#e8a0b8'
-const EYE_WHITE = '#ffffff'
+const BODY = '#1e1e2e'
+const DARK = '#2a2a3e'
 
-function SvgCat({ expression = 'happy', bellyColor = '#3776AB', bellyLabel, delay = 0 }) {
-  const eyes = {
-    happy: (
-      <g>
-        <ellipse cx="36" cy="43" rx="7" ry="7" fill={EYE_WHITE} />
-        <ellipse cx="36" cy="44" rx="3.5" ry="4" fill="#111" />
-        <circle cx="38" cy="42" r="1.2" fill={EYE_WHITE} />
-        <ellipse cx="64" cy="43" rx="7" ry="7" fill={EYE_WHITE} />
-        <ellipse cx="64" cy="44" rx="3.5" ry="4" fill="#111" />
-        <circle cx="66" cy="42" r="1.2" fill={EYE_WHITE} />
-      </g>
-    ),
-    sleepy: (
-      <g>
-        <ellipse cx="36" cy="45" rx="7" ry="4" fill={EYE_WHITE} />
-        <ellipse cx="36" cy="46" rx="3.5" ry="2.2" fill="#111" />
-        <path d="M29 43 Q36 40 43 43" stroke={BODY} strokeWidth="2" fill="none" strokeLinecap="round" />
-        <ellipse cx="64" cy="45" rx="7" ry="4" fill={EYE_WHITE} />
-        <ellipse cx="64" cy="46" rx="3.5" ry="2.2" fill="#111" />
-        <path d="M57 43 Q64 40 71 43" stroke={BODY} strokeWidth="2" fill="none" strokeLinecap="round" />
-      </g>
-    ),
-    curious: (
-      <g>
-        <ellipse cx="36" cy="43" rx="8" ry="8" fill={EYE_WHITE} />
-        <ellipse cx="37" cy="44" rx="4" ry="4.5" fill="#111" />
-        <circle cx="39" cy="41.5" r="1.4" fill={EYE_WHITE} />
-        <ellipse cx="64" cy="43" rx="6" ry="7" fill={EYE_WHITE} />
-        <ellipse cx="64" cy="44" rx="3" ry="4" fill="#111" />
-        <circle cx="65.5" cy="41.5" r="1.2" fill={EYE_WHITE} />
-      </g>
-    ),
-  }
-
-  const mouth = {
-    happy: <path d="M44 57 Q50 64 56 57" stroke={EAR_INNER} strokeWidth="2.2" fill="none" strokeLinecap="round" />,
-    sleepy: <path d="M46 58 Q50 62 54 58" stroke={EAR_INNER} strokeWidth="2" fill="none" strokeLinecap="round" />,
-    curious: <path d="M44 58 Q50 65 56 58" stroke={EAR_INNER} strokeWidth="2.5" fill="none" strokeLinecap="round" />,
-  }
-
+function CatAsymmetric() {
   return (
-    <svg
-      viewBox="0 0 100 138"
-      width="88"
-      height="110"
-      style={{ animation: `cat-float 3.2s ease-in-out ${delay}s infinite` }}
-    >
-      {/* Ears */}
-      <polygon points="16,42 26,12 42,40" fill={BODY} />
-      <polygon points="20,40 26,18 38,40" fill={EAR_INNER} />
-      <polygon points="58,40 74,12 84,42" fill={BODY} />
-      <polygon points="62,40 74,18 80,40" fill={EAR_INNER} />
+    <svg width="80" height="110" viewBox="0 0 80 120" fill="none" xmlns="http://www.w3.org/2000/svg"
+      style={{ animation: 'cat-float 3.2s ease-in-out 0s infinite' }}>
+      <g className="cat-q1">
+        <text x="28" y="12" fontSize="13" fontWeight="bold" fill="#60a5fa" fontFamily="Georgia, serif">?</text>
+      </g>
+      <polygon points="10,44 18,20 30,42" fill={BODY} />
+      <polygon points="14,42 18,26 27,42" fill="#f9a8d4" />
+      <polygon points="50,42 62,20 70,44" fill={BODY} />
+      <polygon points="53,42 62,26 66,42" fill="#f9a8d4" />
+      <ellipse cx="40" cy="54" rx="28" ry="26" fill={BODY} />
+      {/* big eye left */}
+      <ellipse cx="29" cy="50" rx="7" ry="8" fill="white" />
+      <ellipse cx="29" cy="51" rx="4" ry="5" fill="#111" />
+      <circle cx="31" cy="48" r="1.5" fill="white" />
+      {/* squint eye right */}
+      <path d="M47 47 Q53 43 59 47" stroke="white" strokeWidth="2.2" fill="none" strokeLinecap="round" />
+      <path d="M47 51 Q53 47 59 51" stroke="white" strokeWidth="2" fill="none" strokeLinecap="round" />
+      <polygon points="40,57 37,62 43,62" fill="#f9a8d4" />
+      {/* wavy confused mouth */}
+      <path d="M34 65 Q37 62 40 65 Q43 68 46 65" stroke="#f9a8d4" strokeWidth="1.8" fill="none" strokeLinecap="round" />
+      <line x1="2"  y1="55" x2="28" y2="59" stroke="#888" strokeWidth="1.1" strokeLinecap="round" opacity="0.7" />
+      <line x1="2"  y1="62" x2="28" y2="61" stroke="#888" strokeWidth="1.1" strokeLinecap="round" opacity="0.7" />
+      <line x1="52" y1="59" x2="78" y2="55" stroke="#888" strokeWidth="1.1" strokeLinecap="round" opacity="0.7" />
+      <line x1="52" y1="61" x2="78" y2="62" stroke="#888" strokeWidth="1.1" strokeLinecap="round" opacity="0.7" />
+      <ellipse cx="40" cy="98" rx="24" ry="20" fill={BODY} />
+      <ellipse cx="40" cy="100" rx="14" ry="11" fill="#93c5fd" opacity="0.18" />
+      <ellipse cx="24" cy="116" rx="10" ry="6" fill={BODY} />
+      <ellipse cx="19" cy="117" rx="3" ry="2" fill={DARK} />
+      <ellipse cx="24" cy="119" rx="3" ry="2" fill={DARK} />
+      <ellipse cx="29" cy="117" rx="3" ry="2" fill={DARK} />
+      <ellipse cx="56" cy="116" rx="10" ry="6" fill={BODY} />
+      <ellipse cx="51" cy="117" rx="3" ry="2" fill={DARK} />
+      <ellipse cx="56" cy="119" rx="3" ry="2" fill={DARK} />
+      <ellipse cx="61" cy="117" rx="3" ry="2" fill={DARK} />
+    </svg>
+  )
+}
 
-      {/* Head */}
-      <ellipse cx="50" cy="54" rx="34" ry="32" fill={BODY} />
+function CatSurprised() {
+  return (
+    <svg width="92" height="122" viewBox="0 0 80 120" fill="none" xmlns="http://www.w3.org/2000/svg"
+      style={{ animation: 'cat-float 3.2s ease-in-out 0.8s infinite' }}>
+      <g className="cat-q2">
+        <text x="14" y="11" fontSize="11" fontWeight="bold" fill="#fb923c" fontFamily="Georgia, serif">?</text>
+        <text x="46" y="8"  fontSize="14" fontWeight="bold" fill="#fb923c" fontFamily="Georgia, serif">?</text>
+      </g>
+      <polygon points="10,44 18,18 32,42" fill={BODY} />
+      <polygon points="14,42 18,24 28,42" fill="#fda4af" />
+      <polygon points="48,42 62,18 70,44" fill={BODY} />
+      <polygon points="52,42 62,24 67,42" fill="#fda4af" />
+      <ellipse cx="40" cy="54" rx="30" ry="28" fill={BODY} />
+      {/* wide surprised eyes */}
+      <ellipse cx="28" cy="49" rx="8" ry="9" fill="white" />
+      <ellipse cx="28" cy="50" rx="5" ry="6" fill="#111" />
+      <circle cx="30" cy="47" r="2" fill="white" />
+      <ellipse cx="52" cy="49" rx="8" ry="9" fill="white" />
+      <ellipse cx="52" cy="50" rx="5" ry="6" fill="#111" />
+      <circle cx="54" cy="47" r="2" fill="white" />
+      {/* raised eyebrows */}
+      <path d="M22 38 Q28 34 34 38" stroke="white" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.6" />
+      <path d="M46 38 Q52 34 58 38" stroke="white" strokeWidth="2" fill="none" strokeLinecap="round" opacity="0.6" />
+      <polygon points="40,57 37,62 43,62" fill="#fda4af" />
+      {/* O mouth */}
+      <ellipse cx="40" cy="67" rx="4" ry="3" fill="#fda4af" opacity="0.8" />
+      <line x1="0"  y1="54" x2="28" y2="57" stroke="#888" strokeWidth="1.2" strokeLinecap="round" opacity="0.7" />
+      <line x1="0"  y1="62" x2="28" y2="60" stroke="#888" strokeWidth="1.2" strokeLinecap="round" opacity="0.7" />
+      <line x1="52" y1="57" x2="80" y2="54" stroke="#888" strokeWidth="1.2" strokeLinecap="round" opacity="0.7" />
+      <line x1="52" y1="60" x2="80" y2="62" stroke="#888" strokeWidth="1.2" strokeLinecap="round" opacity="0.7" />
+      <ellipse cx="40" cy="100" rx="26" ry="22" fill={BODY} />
+      <ellipse cx="40" cy="102" rx="16" ry="13" fill="#fdba74" opacity="0.18" />
+      <ellipse cx="22" cy="118" rx="11" ry="6" fill={BODY} />
+      <ellipse cx="17" cy="119" rx="3" ry="2" fill={DARK} />
+      <ellipse cx="22" cy="121" rx="3" ry="2" fill={DARK} />
+      <ellipse cx="27" cy="119" rx="3" ry="2" fill={DARK} />
+      <ellipse cx="58" cy="118" rx="11" ry="6" fill={BODY} />
+      <ellipse cx="53" cy="119" rx="3" ry="2" fill={DARK} />
+      <ellipse cx="58" cy="121" rx="3" ry="2" fill={DARK} />
+      <ellipse cx="63" cy="119" rx="3" ry="2" fill={DARK} />
+    </svg>
+  )
+}
 
-      {/* Eyes */}
-      {eyes[expression]}
-
-      {/* Nose */}
-      <polygon points="50,55 47,60 53,60" fill={EAR_INNER} />
-
-      {/* Mouth */}
-      {mouth[expression]}
-
-      {/* Whiskers */}
-      <line x1="8"  y1="53" x2="38" y2="57" stroke="#888" strokeWidth="1.3" strokeLinecap="round" opacity="0.8" />
-      <line x1="8"  y1="60" x2="38" y2="59" stroke="#888" strokeWidth="1.3" strokeLinecap="round" opacity="0.8" />
-      <line x1="62" y1="57" x2="92" y2="53" stroke="#888" strokeWidth="1.3" strokeLinecap="round" opacity="0.8" />
-      <line x1="62" y1="59" x2="92" y2="60" stroke="#888" strokeWidth="1.3" strokeLinecap="round" opacity="0.8" />
-
-      {/* Body */}
-      <ellipse cx="50" cy="108" rx="30" ry="26" fill={BODY} />
-
-      {/* Belly glow */}
-      <ellipse cx="50" cy="110" rx="19" ry="17" fill={bellyColor} opacity="0.15" />
-      <ellipse cx="50" cy="110" rx="14" ry="12" fill={bellyColor} opacity="0.25" />
-
-      {/* Belly label */}
-      <text
-        x="50"
-        y="114"
-        textAnchor="middle"
-        fontSize="10"
-        fontWeight="bold"
-        fontFamily="monospace"
-        fill={bellyColor}
-        opacity="0.95"
-      >
-        {bellyLabel}
-      </text>
-
-      {/* Paws */}
-      <ellipse cx="32" cy="130" rx="12" ry="7" fill={BODY} />
-      <ellipse cx="68" cy="130" rx="12" ry="7" fill={BODY} />
-
-      {/* Paw toes */}
-      <ellipse cx="26" cy="131" rx="3.5" ry="2.2" fill="#3a3a3a" />
-      <ellipse cx="32" cy="133" rx="3.5" ry="2.2" fill="#3a3a3a" />
-      <ellipse cx="38" cy="131" rx="3.5" ry="2.2" fill="#3a3a3a" />
-      <ellipse cx="62" cy="131" rx="3.5" ry="2.2" fill="#3a3a3a" />
-      <ellipse cx="68" cy="133" rx="3.5" ry="2.2" fill="#3a3a3a" />
-      <ellipse cx="74" cy="131" rx="3.5" ry="2.2" fill="#3a3a3a" />
+function CatXEye() {
+  return (
+    <svg width="80" height="110" viewBox="0 0 80 120" fill="none" xmlns="http://www.w3.org/2000/svg"
+      style={{ animation: 'cat-float 3.2s ease-in-out 1.5s infinite' }}>
+      <g className="cat-q3">
+        <text x="36" y="12" fontSize="13" fontWeight="bold" fill="#a78bfa" fontFamily="Georgia, serif">?</text>
+      </g>
+      <polygon points="10,44 18,20 30,42" fill={BODY} />
+      <polygon points="14,42 18,26 27,42" fill="#c4b5fd" />
+      <polygon points="50,42 62,20 70,44" fill={BODY} />
+      <polygon points="53,42 62,26 66,42" fill="#c4b5fd" />
+      <ellipse cx="40" cy="54" rx="28" ry="26" fill={BODY} />
+      {/* X eye left */}
+      <line x1="22" y1="44" x2="32" y2="54" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+      <line x1="32" y1="44" x2="22" y2="54" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+      {/* normal right eye */}
+      <ellipse cx="52" cy="49" rx="7" ry="7" fill="white" />
+      <ellipse cx="52" cy="50" rx="4" ry="4.5" fill="#111" />
+      <circle cx="54" cy="47" r="1.5" fill="white" />
+      <polygon points="40,57 37,62 43,62" fill="#c4b5fd" />
+      <path d="M35 65 Q40 68 45 65" stroke="#c4b5fd" strokeWidth="1.8" fill="none" strokeLinecap="round" />
+      <line x1="2"  y1="55" x2="28" y2="59" stroke="#888" strokeWidth="1.1" strokeLinecap="round" opacity="0.7" />
+      <line x1="2"  y1="62" x2="28" y2="61" stroke="#888" strokeWidth="1.1" strokeLinecap="round" opacity="0.7" />
+      <line x1="52" y1="59" x2="78" y2="55" stroke="#888" strokeWidth="1.1" strokeLinecap="round" opacity="0.7" />
+      <line x1="52" y1="61" x2="78" y2="62" stroke="#888" strokeWidth="1.1" strokeLinecap="round" opacity="0.7" />
+      <ellipse cx="40" cy="98" rx="24" ry="20" fill={BODY} />
+      <ellipse cx="40" cy="100" rx="14" ry="11" fill="#c4b5fd" opacity="0.18" />
+      <ellipse cx="24" cy="116" rx="10" ry="6" fill={BODY} />
+      <ellipse cx="19" cy="117" rx="3" ry="2" fill={DARK} />
+      <ellipse cx="24" cy="119" rx="3" ry="2" fill={DARK} />
+      <ellipse cx="29" cy="117" rx="3" ry="2" fill={DARK} />
+      <ellipse cx="56" cy="116" rx="10" ry="6" fill={BODY} />
+      <ellipse cx="51" cy="117" rx="3" ry="2" fill={DARK} />
+      <ellipse cx="56" cy="119" rx="3" ry="2" fill={DARK} />
+      <ellipse cx="61" cy="117" rx="3" ry="2" fill={DARK} />
     </svg>
   )
 }
@@ -154,24 +169,24 @@ export function MentorshipBanner() {
     <>
       <div className="mentorship-banner">
         <div className="mentorship-cats">
-          <SvgCat expression="happy"   bellyColor="#3776AB" bellyLabel="Python" delay={0} />
-          <SvgCat expression="sleepy"  bellyColor="#FF9900" bellyLabel="AWS"    delay={0.8} />
-          <SvgCat expression="curious" bellyColor="#2496ED" bellyLabel="Docker" delay={1.5} />
+          <CatAsymmetric />
+          <CatSurprised />
+          <CatXEye />
         </div>
 
         <div className="mentorship-content">
           <div className="mentorship-badge">
-            {lang === 'tr' ? '🎓 Ücretsiz' : '🎓 Free'}
+            {lang === 'tr' ? '🎓 Öğrencilere özel' : '🎓 Free · Students only'}
           </div>
           <h2>
             {lang === 'tr'
-              ? 'Öğrenci misin? Mentörlük yapalım.'
-              : 'Are you a student? Let me mentor you.'}
+              ? 'Kafanın mı karışık? Beraber netleştirelim.'
+              : 'Feeling lost? Let me help you figure it out.'}
           </h2>
           <p>
             {lang === 'tr'
-              ? 'Backend, sistem tasarımı veya kariyer hakkında sorularınız mı var? Ücretsiz 1:1 mentörlük için başvurun.'
-              : 'Questions about backend, system design, or your career? Apply for free 1:1 mentorship.'}
+              ? 'Backend, sistem tasarımı veya kariyer yolculuğunda takıldığın yerler olabilir. Bunlar normal — 1:1 mentorlukta birlikte düşünür, birlikte çözeriz.'
+              : 'Stuck on backend, system design, or career decisions? These are normal — in a free 1:1 session we think it through together.'}
           </p>
           <button className="button mentorship-cta" onClick={() => setOpen(true)}>
             {lang === 'tr' ? 'Başvur' : 'Apply'}
