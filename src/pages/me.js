@@ -6,9 +6,11 @@ import { SEO } from '../components/SEO'
 import { Hero } from '../components/Hero'
 import { PageLayout } from '../components/PageLayout'
 import config from '../utils/config'
+import { useLanguage } from '../context/LanguageContext'
 
 export default function Me() {
-  const title = 'Hakkımda'
+  const { lang, t } = useLanguage()
+  const title = t('about.title')
 
   return (
     <>
@@ -18,64 +20,130 @@ export default function Me() {
       <PageLayout>
 
         <section className="section-about">
-          <h2>Hakkımda</h2>
+          <h2>{t('about.sectionAbout')}</h2>
           <div className="about-content">
             <div className="about-text">
               <div className="about-intro">
-                <p>
-                  Ben Selamet. Yaklaşık <strong>9 yıldır</strong> yazılım dünyasının içindeyim.
-                  Son <strong>6 yıldır</strong> profesyonel olarak farklı şirketlerde çalışıyorum.
-                </p>
-
-                <p>
-                  Bir hobi olarak başladığım <strong>neon</strong> üretimini,
-                  artık profesyonel olarak yapıyorum. Çalışmalarımı{' '}
-                  <a
-                    href="https://instagram.com/neoonlush"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="link-highlight"
-                  >
-                    @neoonlush
-                  </a>{' '}
-                  Instagram hesabında paylaşıyorum.
-                </p>
-
-                <p>
-                  Şu sıralar <a href="https://heybooster.ai" target="_blank" rel="noopener" referrerPolicy="origin" className="link-highlight">heybooster</a>'da{' '}
-                  <strong>Backend Developer</strong> olarak çalışıyorum.
-                  Günlerim sistemleri optimize etmek, sıfırdan ölçeklenebilir
-                  sistemler tasarlamak, performans iyileştirmeleri ve
-                  mimari kararlar almakla geçiyor.
-                </p>
+                {lang === 'tr' ? (
+                  <>
+                    <p>
+                      Ben Selamet. Yaklaşık <strong>9 yıldır</strong> yazılım
+                      dünyasının içindeyim. Son <strong>6 yıldır</strong>{' '}
+                      profesyonel olarak farklı şirketlerde çalışıyorum.
+                    </p>
+                    <p>
+                      Bir hobi olarak başladığım <strong>neon</strong> üretimini,
+                      artık profesyonel olarak yapıyorum. Çalışmalarımı{' '}
+                      <a
+                        href="https://instagram.com/neoonlush"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="link-highlight"
+                      >
+                        @neoonlush
+                      </a>{' '}
+                      Instagram hesabında paylaşıyorum.
+                    </p>
+                    <p>
+                      Şu sıralar{' '}
+                      <a
+                        href="https://heybooster.ai"
+                        target="_blank"
+                        rel="noopener"
+                        referrerPolicy="origin"
+                        className="link-highlight"
+                      >
+                        heybooster
+                      </a>
+                      'da <strong>Backend Developer</strong> olarak çalışıyorum.
+                      Günlerim sistemleri optimize etmek, sıfırdan ölçeklenebilir
+                      sistemler tasarlamak, performans iyileştirmeleri ve mimari
+                      kararlar almakla geçiyor.
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <p>
+                      I'm Selamet. I've been in the software world for about{' '}
+                      <strong>9 years</strong>, working professionally at
+                      different companies for the last <strong>6 years</strong>.
+                    </p>
+                    <p>
+                      What started as a hobby — making <strong>neon</strong>{' '}
+                      signs — has become a professional pursuit as well. I share
+                      my work on{' '}
+                      <a
+                        href="https://instagram.com/neoonlush"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="link-highlight"
+                      >
+                        @neoonlush
+                      </a>{' '}
+                      on Instagram.
+                    </p>
+                    <p>
+                      Currently working as a <strong>Backend Developer</strong>{' '}
+                      at{' '}
+                      <a
+                        href="https://heybooster.ai"
+                        target="_blank"
+                        rel="noopener"
+                        referrerPolicy="origin"
+                        className="link-highlight"
+                      >
+                        heybooster
+                      </a>
+                      . My days are spent optimizing systems, designing scalable
+                      architectures from scratch, improving performance, and
+                      making architectural decisions.
+                    </p>
+                  </>
+                )}
               </div>
 
               <div className="about-goals">
-                <p>
-                  2026 için hedeflerim: daha fazla <strong>yazmak</strong>,{' '}
-                  öğrendiklerimi <strong>paylaşmak</strong> ve
-                  gerçekten kullandığım teknolojiler hakkında{' '}
-                  <strong>teknik yazılar</strong> üretmek.
-                  Bu blog da bu niyetle ortaya çıktı.
-                </p>
+                {lang === 'tr' ? (
+                  <p>
+                    2026 için hedeflerim: daha fazla <strong>yazmak</strong>,{' '}
+                    öğrendiklerimi <strong>paylaşmak</strong> ve gerçekten
+                    kullandığım teknolojiler hakkında{' '}
+                    <strong>teknik yazılar</strong> üretmek. Bu blog da bu
+                    niyetle ortaya çıktı.
+                  </p>
+                ) : (
+                  <p>
+                    My goals for 2026: <strong>write more</strong>,{' '}
+                    <strong>share</strong> what I learn, and produce{' '}
+                    <strong>technical articles</strong> about technologies I
+                    actually use. That's what this blog is for.
+                  </p>
+                )}
               </div>
 
               <div className="about-topics">
-                <p className="topics-intro">Burada ağırlıklı olarak şunlardan bahsedeceğim:</p>
+                <p className="topics-intro">{t('about.topicsIntro')}</p>
                 <ul className="topics-list">
-                  <li>Sistem mimarileri ve gerçek hayatta nasıl kurgulandıkları</li>
-                  <li>Backend tarafında sık kullanılan araçlar ve detayları</li>
-                  <li>Bir tool'un ne zaman işe yaradığı, ne zaman yaramadığı</li>
-                  <li>Prod ortamda yaşanan problemler ve bunlarla baş etme yolları</li>
+                  {t('about.topics').map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
                 </ul>
               </div>
 
               <div className="about-approach">
-                <p>
-                  Yazılar daha çok <strong>pratik</strong> olacak.
-                  Dokümantasyon tekrarı yerine, "ben bunu nerede kullandım,
-                  ne işe yaradı, nerede canımı sıktı" gibi deneyimlere dayanacak.
-                </p>
+                {lang === 'tr' ? (
+                  <p>
+                    Yazılar daha çok <strong>pratik</strong> olacak.
+                    Dokümantasyon tekrarı yerine, "ben bunu nerede kullandım, ne
+                    işe yaradı, nerede canımı sıktı" gibi deneyimlere dayanacak.
+                  </p>
+                ) : (
+                  <p>
+                    Posts will be mostly <strong>practical</strong>. Instead of
+                    rehashing docs, they'll be based on real experience — where I
+                    used it, how it helped, where it frustrated me.
+                  </p>
+                )}
               </div>
             </div>
             <div className="about-photo">
@@ -88,9 +156,7 @@ export default function Me() {
             </div>
           </div>
           <blockquote className="quotation quotation-neon">
-            <p>
-              Karanlık editörlerde yazılan her kod, neon ışıltısına ihtiyaç duyar.
-            </p>
+            <p>{t('about.quotation')}</p>
             <footer>— Selamet</footer>
           </blockquote>
           <div className="photo-gallery">
@@ -100,7 +166,7 @@ export default function Me() {
         </section>
 
         <section className="section-about">
-          <h2>Tech Stack</h2>
+          <h2>{t('about.techStack')}</h2>
           <div className="tech-stack">
             <div className="tech-category">
               <h3>Backend Frameworks</h3>
@@ -163,12 +229,9 @@ export default function Me() {
         </section>
 
         <section className="section-about">
-          <h2>İletişim</h2>
+          <h2>{t('about.contact')}</h2>
           <div className="contact-section">
-            <p className="contact-intro">
-              Benimle iletişime geçmek isterseniz aşağıdaki kanallardan
-              ulaşabilirsiniz:
-            </p>
+            <p className="contact-intro">{t('about.contactIntro')}</p>
             <div className="contact-links">
               <a
                 href="mailto:selametsamli@gmail.com"
@@ -206,7 +269,7 @@ export default function Me() {
                 rel="noopener noreferrer"
                 className="button contact-button contact-button-cv"
               >
-                CV İndir
+                {t('about.cvDownload')}
               </a>
             </div>
           </div>
