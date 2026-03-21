@@ -176,17 +176,17 @@ export function MentorshipBanner() {
 
         <div className="mentorship-content">
           <div className="mentorship-badge">
-            {lang === 'tr' ? '🎓 Öğrencilere özel' : '🎓 Free · Students only'}
+            {lang === 'tr' ? '🎓 tamamen ücretsiz' : '🎓 completely free'}
           </div>
           <h2>
             {lang === 'tr'
-              ? 'Kafanın mı karışık? Beraber netleştirelim.'
-              : 'Feeling lost? Let me help you figure it out.'}
+              ? 'Kafan mı karıştı? Olur, konuşalım.'
+              : 'Something not clicking? Let\'s talk it through.'}
           </h2>
           <p>
             {lang === 'tr'
-              ? 'Backend, sistem tasarımı veya kariyer yolculuğunda takıldığın yerler olabilir. Bunlar normal — 1:1 mentorlukta birlikte düşünür, birlikte çözeriz.'
-              : 'Stuck on backend, system design, or career decisions? These are normal — in a free 1:1 session we think it through together.'}
+              ? 'Backend, sistem tasarımı, kariyer — nerede takılırsan takıl, yalnız çözmeye çalışmak zorunda değilsin. Bir mesaj at, ücretsiz 1:1 görüşelim.'
+              : 'Backend, system design, career — wherever you\'re stuck, you don\'t have to figure it out alone. Drop me a message, let\'s have a free 1:1 chat.'}
           </p>
           <button className="button mentorship-cta" onClick={() => setOpen(true)}>
             {lang === 'tr' ? 'Başvur' : 'Apply'}
