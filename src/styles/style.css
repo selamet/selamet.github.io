@@ -1689,7 +1689,7 @@ a time.new-post {
     color: var(--color-text);
     line-height: 1.5;
     margin: 0;
-    flex: 1;
+    min-height: 3.2em;
   }
 
   .collaborate-card-puzzle {
@@ -2105,6 +2105,282 @@ a time.new-post {
   strong { display: block; margin-bottom: 0.2rem; }
 
   p { margin: 0; font-size: 0.85rem; color: var(--color-text); }
+}
+
+/* Mentorship Banner */
+
+.mentorship-banner {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin: 2.5rem 0;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-border-card);
+  background: var(--color-background-card);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+      color-mix(in srgb, var(--color-primary) 6%, transparent),
+      transparent 60%
+    );
+    pointer-events: none;
+  }
+}
+
+.mentorship-cats {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+
+.mentorship-content {
+  flex: 1;
+
+  h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-text-emphasized);
+    margin: 0.35rem 0 0.5rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: var(--color-text);
+    line-height: 1.6;
+    margin: 0 0 1rem;
+  }
+}
+
+.mentorship-badge {
+  font-size: 0.7rem;
+  font-family: var(--font-family-code);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 12%, transparent);
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+
+.mentorship-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* CSS Cats */
+
+.css-cat {
+  position: relative;
+  width: 56px;
+  flex-shrink: 0;
+}
+
+.cat-ear {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 18px solid var(--color-text-emphasized);
+  top: -10px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 12px solid var(--color-primary);
+    top: 4px;
+    left: -6px;
+  }
+}
+
+.cat-ear--left { left: 4px; }
+.cat-ear--right { right: 4px; }
+
+.cat-head {
+  width: 56px;
+  height: 50px;
+  background: var(--color-text-emphasized);
+  border-radius: 50% 50% 45% 45%;
+  position: relative;
+}
+
+.cat-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.cat-eyes {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.cat-eye {
+  width: 11px;
+  height: 11px;
+  background: var(--color-background-card);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.css-cat--sleepy .cat-eye {
+  height: 5px;
+  border-radius: 50% 50% 0 0;
+  align-items: flex-start;
+}
+
+.css-cat--curious .cat-eye--left {
+  width: 13px;
+  height: 13px;
+}
+
+.cat-pupil {
+  width: 5px;
+  height: 7px;
+  background: var(--color-text-emphasized);
+  border-radius: 50%;
+}
+
+.css-cat--sleepy .cat-pupil { display: none; }
+
+.cat-nose {
+  width: 6px;
+  height: 4px;
+  background: color-mix(in srgb, var(--color-primary) 70%, #ff8888);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  margin-top: 2px;
+}
+
+.cat-mouth {
+  width: 14px;
+  height: 5px;
+  border-bottom: 2px solid var(--color-background-card);
+  border-left: 2px solid transparent;
+  border-right: 2px solid transparent;
+  border-radius: 0 0 50% 50%;
+  margin-top: 1px;
+}
+
+.css-cat--sleepy .cat-mouth {
+  width: 10px;
+}
+
+.cat-whiskers {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.cat-whisker {
+  position: absolute;
+  height: 1.5px;
+  background: var(--color-background-card);
+  border-radius: 2px;
+  opacity: 0.7;
+}
+
+.cat-whisker--l1 { width: 18px; top: 58%; left: 0; transform: rotate(-8deg); }
+.cat-whisker--l2 { width: 16px; top: 65%; left: 2px; transform: rotate(5deg); }
+.cat-whisker--r1 { width: 18px; top: 58%; right: 0; transform: rotate(8deg); }
+.cat-whisker--r2 { width: 16px; top: 65%; right: 2px; transform: rotate(-5deg); }
+
+.cat-body {
+  width: 48px;
+  height: 32px;
+  background: var(--color-text-emphasized);
+  border-radius: 30% 30% 40% 40%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.cat-paws {
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  bottom: -6px;
+  left: 4px;
+  right: 4px;
+}
+
+.cat-paw {
+  width: 14px;
+  height: 10px;
+  background: var(--color-text-emphasized);
+  border-radius: 50% 50% 40% 40%;
+}
+
+.cat-tail {
+  position: absolute;
+  width: 10px;
+  height: 28px;
+  background: var(--color-text-emphasized);
+  border-radius: 10px 10px 0 10px;
+  bottom: 0;
+  right: -8px;
+  transform: rotate(20deg);
+  transform-origin: bottom center;
+}
+
+.css-cat--sleepy .cat-tail {
+  transform: rotate(-10deg);
+}
+
+.css-cat--curious .cat-tail {
+  transform: rotate(40deg);
+}
+
+.css-cat {
+  animation: cat-breathe 3s ease-in-out infinite;
+}
+
+.css-cat:nth-child(2) {
+  animation-delay: 0.8s;
+  animation-duration: 4s;
+}
+
+.css-cat:nth-child(3) {
+  animation-delay: 1.5s;
+  animation-duration: 2.5s;
+}
+
+@keyframes cat-breathe {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.mentorship-modal {
+  max-width: 480px;
+}
+
+@media screen and (max-width: 600px) {
+  .mentorship-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .mentorship-cats {
+    justify-content: center;
+  }
 }
 
 /* Project Cards */

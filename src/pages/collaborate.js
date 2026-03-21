@@ -122,7 +122,7 @@ const challenges = [
     type: 'backend',
     accent: '#5b8abf',
     icon: Layers,
-    title: { tr: 'Frontend / Redux Challenge', en: 'Frontend / Redux Challenge' },
+    title: { tr: 'Redux Challenge', en: 'Redux Challenge' },
     desc: {
       tr: 'Reducer ve action\'ları yapılandır, store\'u çalıştır.',
       en: 'Configure the reducer and actions, make the store work.',
