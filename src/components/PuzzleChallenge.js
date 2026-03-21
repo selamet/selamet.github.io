@@ -15,13 +15,18 @@ function createStore(reducer) {
 }
 
 function runBackendTests(code, testCases) {
-  // Try as a class first, then as a function
   let fn
   let isClass = false
   try {
     // eslint-disable-next-line no-new-func
-    const result = new Function('createStore', `${code};\nif (typeof EventEmitter !== 'undefined') return EventEmitter;\nif (typeof todosReducer !== 'undefined') return todosReducer;\nreturn undefined;`)(createStore)
-    if (result === undefined) throw new Error('Could not find a class or function to test. Make sure your class/function name matches.')
+    const result = new Function('createStore', `
+      ${code};
+      if (typeof EventEmitter !== 'undefined') return EventEmitter;
+      if (typeof todosReducer !== 'undefined') return todosReducer;
+      if (typeof getTaskDefinition !== 'undefined') return getTaskDefinition;
+      return undefined;
+    `)(createStore)
+    if (result === undefined) throw new Error('Could not find a class or function to test.')
     fn = result
     isClass = typeof fn === 'function' && /^class\s/.test(fn.toString())
   } catch (e) {
@@ -30,11 +35,7 @@ function runBackendTests(code, testCases) {
 
   return testCases.map((tc) => {
     try {
-      if (isClass) {
-        tc.run(fn)
-      } else {
-        tc.run(fn, createStore)
-      }
+      isClass ? tc.run(fn) : tc.run(fn, createStore)
       return { description: tc.description, passed: true }
     } catch (e) {
       return { description: tc.description, passed: false, error: e.message }
@@ -44,18 +45,20 @@ function runBackendTests(code, testCases) {
 
 export function PuzzleChallenge({ project, onClose }) {
   const { puzzle } = project
-  const [code, setCode] = useState(puzzle.starterCode)
+  const isIdea = puzzle.type === 'idea'
+
+  const [code, setCode] = useState(puzzle.starterCode || '')
   const [results, setResults] = useState(null)
   const [allPassed, setAllPassed] = useState(false)
   const [parseError, setParseError] = useState(null)
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [idea, setIdea] = useState('')
-  const [submitState, setSubmitState] = useState('idle') // idle | sending | done | error
+  const [submitState, setSubmitState] = useState('idle')
+
   const iframeRef = useRef(null)
   const textareaRef = useRef(null)
   const lineNumbersRef = useRef(null)
-
   const lineCount = code.split('\n').length
 
   const syncScroll = useCallback(() => {
@@ -66,27 +69,19 @@ export function PuzzleChallenge({ project, onClose }) {
 
   function handleRun() {
     setParseError(null)
-    if (puzzle.type === 'backend') {
-      const res = runBackendTests(code, puzzle.testCases)
-      if (res.parseError) {
-        setParseError(res.parseError)
-        setResults(null)
-        setAllPassed(false)
-        return
-      }
-      setResults(res)
-      setAllPassed(res.every((r) => r.passed))
-    } else {
-      // frontend: render in iframe
-      if (iframeRef.current) {
-        iframeRef.current.srcdoc = code
-      }
-      setAllPassed(true)
+    const res = runBackendTests(code, puzzle.testCases)
+    if (res.parseError) {
+      setParseError(res.parseError)
+      setResults(null)
+      setAllPassed(false)
+      return
     }
+    setResults(res)
+    setAllPassed(res.every((r) => r.passed))
   }
 
   function handleReset() {
-    setCode(puzzle.starterCode)
+    setCode(puzzle.starterCode || '')
     setResults(null)
     setAllPassed(false)
     setParseError(null)
@@ -105,7 +100,7 @@ export function PuzzleChallenge({ project, onClose }) {
           project_idea: idea,
           puzzle_title: puzzle.title,
           puzzle_type: puzzle.type,
-          solution_code: code,
+          solution_code: isIdea ? '(no code — idea submission)' : code,
           to_email: 'selametsamli@gmail.com',
         },
         EMAILJS_PUBLIC_KEY
@@ -143,137 +138,137 @@ export function PuzzleChallenge({ project, onClose }) {
             )}
           </div>
 
-          <div className="puzzle-editor-section">
-            <div className="code-editor-frame">
-              <div className="code-editor-titlebar">
-                <div className="code-editor-dots">
-                  <span />
-                  <span />
-                  <span />
-                </div>
-                <span className="code-editor-filename">
-                  {puzzle.type === 'frontend' ? 'solution.html' : 'solution.js'}
-                </span>
-                <button className="code-editor-reset" onClick={handleReset}>
-                  <RotateCcw size={11} /> Reset
-                </button>
-              </div>
-              <div className="code-editor-body">
-                <div className="code-editor-lines" ref={lineNumbersRef}>
-                  {Array.from({ length: lineCount }, (_, i) => (
-                    <span key={i}>{i + 1}</span>
-                  ))}
-                </div>
-                <textarea
-                  ref={textareaRef}
-                  className="puzzle-editor"
-                  value={code}
-                  onChange={(e) => setCode(e.target.value)}
-                  onScroll={syncScroll}
-                  spellCheck={false}
-                  autoComplete="off"
-                  autoCorrect="off"
-                  autoCapitalize="off"
-                />
-              </div>
-            </div>
-          </div>
-
-          {puzzle.type === 'frontend' && (
-            <div className="puzzle-preview-section">
-              <span className="puzzle-editor-label">Preview</span>
-              <iframe
-                ref={iframeRef}
-                className="puzzle-preview-frame"
-                title="preview"
-                sandbox="allow-scripts"
-              />
-            </div>
-          )}
-
-          {parseError && (
-            <div className="puzzle-parse-error">
-              <XCircle size={14} /> {parseError}
-            </div>
-          )}
-
-          {results && (
-            <div className="puzzle-results">
-              <div className="puzzle-results-header">
-                {passedCount}/{results.length} tests passed
-              </div>
-              {results.map((r, i) => (
-                <div key={i} className={`puzzle-test ${r.passed ? 'passed' : 'failed'}`}>
-                  {r.passed ? <CheckCircle size={14} /> : <XCircle size={14} />}
-                  <div>
-                    <span>{r.description}</span>
-                    {!r.passed && r.error && <code>{r.error}</code>}
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-
-          <div className="puzzle-actions">
-            <button className="button primary" onClick={handleRun}>
-              <Play size={14} />
-              {puzzle.type === 'frontend' ? 'Preview' : 'Run Tests'}
-            </button>
-          </div>
-
-          {allPassed && submitState !== 'done' && (
-            <div className="puzzle-success-form">
-              <div className="puzzle-success-header">
-                <CheckCircle size={18} />
-                {puzzle.type === 'frontend'
-                  ? 'Looks great! Send your solution to collaborate.'
-                  : 'All tests passed! Send your solution to collaborate.'}
-              </div>
+          {/* Idea type: just a form, no code editor */}
+          {isIdea && submitState !== 'done' && (
+            <div className="puzzle-success-form" style={{ marginTop: 0 }}>
               <form onSubmit={handleSubmit} className="puzzle-form">
-                <input
-                  type="text"
-                  placeholder="Your name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                />
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
+                <input type="text" placeholder="Your name" value={name} onChange={(e) => setName(e.target.value)} required />
+                <input type="email" placeholder="Your email" value={email} onChange={(e) => setEmail(e.target.value)} required />
                 <textarea
-                  placeholder="What do you want to build? Briefly describe your idea..."
+                  placeholder="Describe your idea — what do you want to build? Who is it for? What problem does it solve?"
                   value={idea}
                   onChange={(e) => setIdea(e.target.value)}
-                  rows={3}
+                  rows={5}
                   required
                 />
-                <button
-                  type="submit"
-                  className="button primary"
-                  disabled={submitState === 'sending'}
-                >
+                <button type="submit" className="button primary" disabled={submitState === 'sending'}>
                   <Send size={14} />
-                  {submitState === 'sending' ? 'Sending...' : 'Send Solution'}
+                  {submitState === 'sending' ? 'Sending...' : 'Send Idea'}
                 </button>
-                {submitState === 'error' && (
-                  <p className="puzzle-submit-error">Something went wrong. Try again.</p>
-                )}
+                {submitState === 'error' && <p className="puzzle-submit-error">Something went wrong. Try again.</p>}
               </form>
             </div>
           )}
 
-          {submitState === 'done' && (
+          {isIdea && submitState === 'done' && (
             <div className="puzzle-submitted">
               <CheckCircle size={20} />
               <div>
-                <strong>Solution sent!</strong>
+                <strong>Idea received!</strong>
                 <p>I'll get back to you at {email} soon.</p>
               </div>
             </div>
+          )}
+
+          {/* Code challenges: editor + tests */}
+          {!isIdea && (
+            <>
+              <div className="puzzle-editor-section">
+                <div className="code-editor-frame">
+                  <div className="code-editor-titlebar">
+                    <div className="code-editor-dots">
+                      <span /><span /><span />
+                    </div>
+                    <span className="code-editor-filename">solution.js</span>
+                    <button className="code-editor-reset" onClick={handleReset}>
+                      <RotateCcw size={11} /> Reset
+                    </button>
+                  </div>
+                  <div className="code-editor-body">
+                    <div className="code-editor-lines" ref={lineNumbersRef}>
+                      {Array.from({ length: lineCount }, (_, i) => (
+                        <span key={i}>{i + 1}</span>
+                      ))}
+                    </div>
+                    <textarea
+                      ref={textareaRef}
+                      className="puzzle-editor"
+                      value={code}
+                      onChange={(e) => setCode(e.target.value)}
+                      onScroll={syncScroll}
+                      spellCheck={false}
+                      autoComplete="off"
+                      autoCorrect="off"
+                      autoCapitalize="off"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {parseError && (
+                <div className="puzzle-parse-error">
+                  <XCircle size={14} /> {parseError}
+                </div>
+              )}
+
+              {results && (
+                <div className="puzzle-results">
+                  <div className="puzzle-results-header">
+                    {passedCount}/{results.length} tests passed
+                  </div>
+                  {results.map((r, i) => (
+                    <div key={i} className={`puzzle-test ${r.passed ? 'passed' : 'failed'}`}>
+                      {r.passed ? <CheckCircle size={14} /> : <XCircle size={14} />}
+                      <div>
+                        <span>{r.description}</span>
+                        {!r.passed && r.error && <code>{r.error}</code>}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              <div className="puzzle-actions">
+                <button className="button primary" onClick={handleRun}>
+                  <Play size={14} /> Run Tests
+                </button>
+              </div>
+
+              {allPassed && submitState !== 'done' && (
+                <div className="puzzle-success-form">
+                  <div className="puzzle-success-header">
+                    <CheckCircle size={18} />
+                    All tests passed! Send your solution to collaborate.
+                  </div>
+                  <form onSubmit={handleSubmit} className="puzzle-form">
+                    <input type="text" placeholder="Your name" value={name} onChange={(e) => setName(e.target.value)} required />
+                    <input type="email" placeholder="Your email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                    <textarea
+                      placeholder="What do you want to build? Briefly describe your idea..."
+                      value={idea}
+                      onChange={(e) => setIdea(e.target.value)}
+                      rows={3}
+                      required
+                    />
+                    <button type="submit" className="button primary" disabled={submitState === 'sending'}>
+                      <Send size={14} />
+                      {submitState === 'sending' ? 'Sending...' : 'Send Solution'}
+                    </button>
+                    {submitState === 'error' && <p className="puzzle-submit-error">Something went wrong. Try again.</p>}
+                  </form>
+                </div>
+              )}
+
+              {submitState === 'done' && (
+                <div className="puzzle-submitted">
+                  <CheckCircle size={20} />
+                  <div>
+                    <strong>Solution sent!</strong>
+                    <p>I'll get back to you at {email} soon.</p>
+                  </div>
+                </div>
+              )}
+            </>
           )}
         </div>
       </div>
