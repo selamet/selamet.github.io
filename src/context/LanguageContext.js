@@ -10,6 +10,9 @@ export const LanguageProvider = ({ children }) => {
     const saved = window.localStorage.getItem('lang')
     if (saved === 'tr' || saved === 'en') {
       setLang(saved)
+    } else {
+      const browserLang = navigator.language || ''
+      setLang(browserLang.toLowerCase().startsWith('tr') ? 'tr' : 'en')
     }
   }, [])
 
