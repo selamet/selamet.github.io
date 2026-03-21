@@ -65,7 +65,7 @@ export const Navigation = ({
                 width="16"
               />
             </span>
-            <span className="site-name">Selamet Samli</span>
+            <span className="site-name">Selamet's Diary</span>
           </Link>
         </div>
       </div>
