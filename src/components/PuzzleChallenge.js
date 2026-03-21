@@ -43,8 +43,11 @@ function runBackendTests(code, testCases) {
   })
 }
 
-export function PuzzleChallenge({ project, onClose }) {
+export function PuzzleChallenge({ project, onClose, lang = 'en' }) {
   const { puzzle } = project
+  const description = typeof puzzle.description === 'object'
+    ? (puzzle.description[lang] || puzzle.description.en)
+    : puzzle.description
   const isIdea = puzzle.type === 'idea'
 
   const [code, setCode] = useState(puzzle.starterCode || '')
@@ -127,7 +130,7 @@ export function PuzzleChallenge({ project, onClose }) {
 
         <div className="puzzle-modal-body">
           <div className="puzzle-description">
-            {puzzle.description.split('\n').map((line, i) =>
+            {description.split('\n').map((line, i) =>
               line.startsWith('- ') ? (
                 <li key={i}>{line.slice(2)}</li>
               ) : line.trim() === '' ? (

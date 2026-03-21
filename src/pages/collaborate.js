@@ -24,12 +24,20 @@ const challenges = [
     puzzle: {
       type: 'backend',
       title: 'Complete the EventEmitter Class',
-      description: `Implement a simple EventEmitter class with the following methods:
+      description: {
+        en: `Implement a simple EventEmitter class with the following methods:
 
 - \`on(event, listener)\` — register a listener for an event
 - \`off(event, listener)\` — remove a specific listener
 - \`emit(event, ...args)\` — call all listeners for an event with given args
 - \`once(event, listener)\` — listener fires only once, then auto-removes`,
+        tr: `Aşağıdaki metodlara sahip basit bir EventEmitter sınıfı yaz:
+
+- \`on(event, listener)\` — bir event için listener kaydet
+- \`off(event, listener)\` — belirli bir listener'ı kaldır
+- \`emit(event, ...args)\` — event için tüm listener'ları verilen argümanlarla çağır
+- \`once(event, listener)\` — listener yalnızca bir kez çalışır, sonra otomatik kaldırılır`,
+      },
       starterCode: `class EventEmitter {
   constructor() {
     this._events = {}
@@ -130,12 +138,20 @@ const challenges = [
     puzzle: {
       type: 'backend',
       title: 'Configure a Redux-style Store',
-      description: `A minimal \`createStore(reducer)\` is already provided — you don't need to import anything.
+      description: {
+        en: `A minimal \`createStore(reducer)\` is already provided — you don't need to import anything.
 
 Complete the \`todosReducer\` and \`initialState\` to handle these actions:
 - \`ADD_TODO\` — payload: \`{ id, text }\`, adds to todos array
 - \`TOGGLE_TODO\` — payload: \`id\`, flips the \`done\` field
 - \`SET_FILTER\` — payload: \`'all' | 'active' | 'completed'\`, sets filter`,
+        tr: `Minimal bir \`createStore(reducer)\` zaten sağlanıyor — herhangi bir şey import etmene gerek yok.
+
+Şu action'ları işleyecek \`todosReducer\` ve \`initialState\`'i tamamla:
+- \`ADD_TODO\` — payload: \`{ id, text }\`, todos dizisine ekler
+- \`TOGGLE_TODO\` — payload: \`id\`, \`done\` alanını tersine çevirir
+- \`SET_FILTER\` — payload: \`'all' | 'active' | 'completed'\`, filter'ı günceller`,
+      },
       starterCode: `// createStore is provided — do not redefine it
 // Usage: const store = createStore(reducer)
 // store.getState() → current state
@@ -226,13 +242,22 @@ function todosReducer(state = initialState, action) {
     puzzle: {
       type: 'backend',
       title: 'AWS ECS Task Definition',
-      description: `Complete the ECS task definition object for a Node.js web service running on Fargate.
+      description: {
+        en: `Complete the ECS task definition object for a Node.js web service running on Fargate.
 
 Requirements:
 - Container named \`api\`, image \`my-org/api:latest\`, port \`3000\`
 - Fargate compatible, Linux, \`awsvpc\` network mode
 - Task memory: \`512\` MiB, CPU: \`256\` units
 - Log driver: \`awslogs\` with group \`/ecs/api\``,
+        tr: `Fargate üzerinde çalışan bir Node.js web servisi için ECS task definition nesnesini tamamla.
+
+Gereksinimler:
+- Container adı \`api\`, image \`my-org/api:latest\`, port \`3000\`
+- Fargate uyumlu, Linux, \`awsvpc\` network mode
+- Task bellek: \`512\` MiB, CPU: \`256\` birim
+- Log driver: \`awslogs\`, group \`/ecs/api\``,
+      },
       starterCode: `// Complete the ECS task definition object.
 // Return it from the function — do not rename the function.
 
@@ -339,7 +364,10 @@ function getTaskDefinition() {
     puzzle: {
       type: 'idea',
       title: 'Tell Me Your Idea',
-      description: 'No code required. Just describe what you want to build, who it is for, and what problem it solves.',
+      description: {
+        en: 'No code required. Just describe what you want to build, who it is for, and what problem it solves.',
+        tr: 'Kod gerekmez. Ne yapmak istediğini, kimin için olduğunu ve hangi sorunu çözdüğünü anlat.',
+      },
     },
   },
 ]
@@ -382,7 +410,7 @@ export default function Collaborate() {
 
                 <div className="collaborate-card-puzzle">
                   <p className="collaborate-puzzle-desc">
-                    {ch.puzzle.description.split('\n')[0]}
+                    {(ch.puzzle.description[lang] || ch.puzzle.description.en).split('\n')[0]}
                   </p>
                 </div>
 
