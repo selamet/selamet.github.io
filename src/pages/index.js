@@ -105,6 +105,8 @@ export default function Index({ data }) {
           </div>
         </Hero>
 
+        <MentorshipBanner />
+
         <section className="section-index">
           <Heading
             title={t('index.blogTitle')}
@@ -142,8 +144,6 @@ export default function Index({ data }) {
             })}
           </div>
         </section>
-
-        <MentorshipBanner />
 
         <section>
           <Heading
