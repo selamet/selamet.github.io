@@ -103,8 +103,8 @@ export const Navigation = ({
             ))}
           </nav>
           <nav className="navbar-menu social">
-            <button className="navbar-button" onClick={toggleLang}>
-              {lang === 'tr' ? 'EN' : 'TR'}
+            <button className="navbar-button" onClick={toggleLang} title={lang === 'tr' ? 'Switch to English' : 'Türkçeye geç'}>
+              {lang === 'tr' ? '🇬🇧' : '🇹🇷'}
             </button>
             <button
               className="navbar-button"

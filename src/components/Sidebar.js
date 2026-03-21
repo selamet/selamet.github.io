@@ -41,8 +41,8 @@ export const Sidebar = ({
             <span className="site-name">Selamet's Diary</span>
           </Link>
           <div className="flex-align-center">
-            <button className="navbar-button" onClick={toggleLang}>
-              {lang === 'tr' ? 'EN' : 'TR'}
+            <button className="navbar-button" onClick={toggleLang} title={lang === 'tr' ? 'Switch to English' : 'Türkçeye geç'}>
+              {lang === 'tr' ? '🇬🇧' : '🇹🇷'}
             </button>
             <ColorDropdown
               currentColor={currentColor}
